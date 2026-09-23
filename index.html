@@ -173,6 +173,18 @@ td.num, th.num{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabul
 .floss{font-size:.76rem; color:var(--ink-soft); padding-left:148px; margin-top:-4px; margin-bottom:6px; line-height:1.5;}
 .floss b{color:var(--red);}
 
+/* ---- twin funnel shapes ---- */
+.funnel2-wrap{display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-block:24px;}
+.funnel2-col h4{font-family:"IBM Plex Mono",monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); font-weight:600; margin:0 0 14px; text-align:center;}
+.funnel2-body{display:grid; grid-template-columns:1fr 1.3fr; gap:6px; align-items:stretch;}
+.funnel2-svg{width:100%; height:auto; display:block;}
+.funnel2-labels{display:grid; grid-template-rows:100fr 10fr 100fr 10fr 100fr;}
+.funnel2-label{display:flex; flex-direction:column; justify-content:center; font-size:.78rem; line-height:1.3;}
+.funnel2-label .nm{color:var(--ink-soft); font-size:.72rem;}
+.funnel2-label .vv{font-family:"IBM Plex Mono",monospace; font-weight:700; font-size:.95rem;}
+.funnel2-label .vv small{font-weight:600; font-size:.68rem; margin-left:6px; padding:2px 8px; border-radius:999px;}
+@media (max-width:720px){ .funnel2-wrap{grid-template-columns:1fr;} }
+
 /* ---- benchmark bars ---- */
 .bench-row{display:grid; grid-template-columns:170px 1fr; gap:16px; align-items:center; margin-block:14px;}
 .bench-row .lbl{font-size:.85rem;}
@@ -376,23 +388,46 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
   </div>
   <p style="font-size:.78rem;color:var(--ink-soft);margin-top:10px;">Essas quatro métricas ficam fora da cadeia sequencial abaixo — não dá pra "acumular %" de Alcance até Venda porque a mesma pessoa é impactada em média 4,1 vezes antes de clicar uma única vez. Benchmark de CTR (0,9%–2,0%): WordStream/WebFX, Meta Marketing Benchmarks 2026⁴ — fonte completa na seção 12.</p>
 
-  <h3 style="margin-top:30px;">A cadeia sequencial — dois funis, só taxa de conversão</h3>
-  <p style="font-size:.85rem;color:var(--ink-soft);">Cada etapa comparada isoladamente com o benchmark de mercado equivalente — não é a % acumulada de Sessão até Venda, é a taxa própria de cada passagem.</p>
+  <h3 style="margin-top:30px;">A cadeia sequencial — dois funis, lado a lado</h3>
+  <p style="font-size:.85rem;color:var(--ink-soft);">O formato de cada funil é a % acumulada a partir de Sessão (largura ilustrativa, não em escala linear — os números em cada faixa são os reais). Repare onde a Touch Of Synergy é mais larga que o benchmark (Carrinho → Checkout, ela converte melhor) e onde ela fecha muito mais rápido (Checkout → Venda, o gargalo).</p>
 
-  <div class="funnel-label" style="font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); margin-top:22px;">Touch Of Synergy</div>
-  <div class="funnel">
-    <div class="fstep"><div class="name">Sessão → Carrinho</div><div class="track"><div class="fill" style="width:6.37%"></div></div><div class="val"><b class="tnum">6,37%</b><br><small class="tag fact" style="display:inline-block;">dentro</small></div></div>
-    <div class="fstep"><div class="name">Carrinho → Checkout</div><div class="track"><div class="fill" style="width:49.5%"></div></div><div class="val"><b class="tnum">49,5%</b><br><small class="tag fact" style="display:inline-block;">acima</small></div></div>
-    <div class="fstep"><div class="name">Checkout → Venda</div><div class="track"><div class="fill crit" style="width:13.2%"></div></div><div class="val"><b class="tnum">13,2%</b><br><small class="tag" style="display:inline-block;background:var(--red-soft);color:var(--red);">fora</small></div></div>
+  <div class="funnel2-wrap">
+    <div class="funnel2-col">
+      <h4>Touch Of Synergy</h4>
+      <div class="funnel2-body">
+        <svg class="funnel2-svg" viewBox="0 0 220 320" preserveAspectRatio="none">
+          <polygon points="10,0 210,0 148.1,100 71.9,100" fill="var(--accent)"/>
+          <polygon points="71.9,110 148.1,110 139.8,210 80.2,210" fill="var(--good)"/>
+          <polygon points="80.2,220 139.8,220 124.7,320 95.3,320" fill="var(--red)"/>
+        </svg>
+        <div class="funnel2-labels">
+          <div class="funnel2-label"><span class="nm">Sessão → Carrinho</span><span class="vv">6,37% <small class="tag fact">dentro</small></span></div>
+          <div></div>
+          <div class="funnel2-label"><span class="nm">Carrinho → Checkout</span><span class="vv">49,5% <small class="tag fact">acima</small></span></div>
+          <div></div>
+          <div class="funnel2-label"><span class="nm">Checkout → Venda</span><span class="vv">13,2% <small class="tag" style="background:var(--red-soft);color:var(--red);">fora</small></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="funnel2-col">
+      <h4>Benchmark de mercado</h4>
+      <div class="funnel2-body">
+        <svg class="funnel2-svg" viewBox="0 0 220 320" preserveAspectRatio="none">
+          <polygon points="10,0 210,0 149.4,100 70.6,100" fill="var(--ink-soft)" opacity="0.55"/>
+          <polygon points="70.6,110 149.4,110 137.3,210 82.7,210" fill="var(--ink-soft)" opacity="0.7"/>
+          <polygon points="82.7,220 137.3,220 128.3,320 91.7,320" fill="var(--ink-soft)" opacity="0.85"/>
+        </svg>
+        <div class="funnel2-labels">
+          <div class="funnel2-label"><span class="nm">Sessão → Carrinho</span><span class="vv">6%–8%</span></div>
+          <div></div>
+          <div class="funnel2-label"><span class="nm">Carrinho → Checkout</span><span class="vv">30%–40%</span></div>
+          <div></div>
+          <div class="funnel2-label"><span class="nm">Checkout → Venda</span><span class="vv">25%–40%</span></div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="funnel-label" style="font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); margin-top:26px;">Benchmark de mercado</div>
-  <div class="funnel">
-    <div class="fstep"><div class="name">Sessão → Carrinho</div><div class="track"><div class="fill" style="width:7%;background:var(--ink-soft);"></div></div><div class="val"><b class="tnum">6%–8%</b></div></div>
-    <div class="fstep"><div class="name">Carrinho → Checkout</div><div class="track"><div class="fill" style="width:35%;background:var(--ink-soft);"></div></div><div class="val"><b class="tnum">30%–40%</b></div></div>
-    <div class="fstep"><div class="name">Checkout → Venda</div><div class="track"><div class="fill" style="width:32%;background:var(--ink-soft);"></div></div><div class="val"><b class="tnum">25%–40%</b></div></div>
-  </div>
-  <p style="font-size:.72rem;color:var(--ink-soft);margin-top:10px;">Largura das barras = a própria taxa (0–100%), mesma escala nos dois funis — comparável lado a lado. Fontes: Sessão → Carrinho, beleza e cuidados pessoais, Dynamic Yield by Mastercard via Clickpost.ai 2026. Carrinho → Checkout e Checkout → Venda (tráfego mobile), Lebesgue/Mida Funnel Benchmarks 2026 via AdSights. Lista completa com link na seção 12.</p>
+  <p style="font-size:.72rem;color:var(--ink-soft);margin-top:4px;">Fontes: Sessão → Carrinho, beleza e cuidados pessoais, Dynamic Yield by Mastercard via Clickpost.ai 2026. Carrinho → Checkout e Checkout → Venda (tráfego mobile), Lebesgue/Mida Funnel Benchmarks 2026 via AdSights. Lista completa com link na seção 12.</p>
 
   <div class="tbl-wrap" style="margin-top:20px;">
     <table>
