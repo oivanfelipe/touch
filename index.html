@@ -320,6 +320,11 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
     <span class="label">Achado de auditoria — duas fontes do cliente divergem entre si</span>
     O painel mensal (print) mostrava Faturamento de R$ 4.978 e 9 vendas em setembro, com Ticket Médio (R$ 402) e ROAS (1,26x) que nem batiam com esses dois números. A planilha diária completa, recalculada célula a célula para o mesmo período (01–23/09), mostra R$ 4.337 e 12 vendas — usada como fonte oficial desta análise por ser a mais granular e verificável. Detalhe completo na seção 03.
   </div>
+
+  <div class="callout finding">
+    <span class="label">A régua certa não é só o mercado — é o próprio junho-agosto</span>
+    A planilha diária cobre desde 01/06, não só setembro. Nos três meses anteriores o ROAS ficou entre 1,95x e 2,43x e o CAC entre R$ 126 e R$ 207 — uma operação estável. Em setembro, mesmo investindo 33% a mais por dia, o ROAS caiu para 1,06x e o CAC quase triplicou para R$ 343. Isso descarta "sempre foi assim" como explicação: algo mudou dentro do funil especificamente em setembro. Linha do tempo completa na seção 03.
+  </div>
 </section>
 
 <section id="contexto">
@@ -365,6 +370,24 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
   <div class="callout risk">
     <span class="label">Lacuna resolvida — puxado direto das contas de anúncio via Windsor.ai em 23/09/2026</span>
     O funil segue tratado como sistema único porque não dá pra saber quantas sessões/vendas vieram de cada canal sem UTM cruzado no GA4 — mas o investimento por canal já saiu do blend. Setembro (01–23): <b>Google Ads investiu R$ 2.857 (67% do total)</b>, Meta Ads investiu <b>R$ 1.397 (33%)</b>. E o achado mais importante: <b>o Meta Ads ficou zerado de 01 a 09/09</b>, os primeiros nove dias do mês — o Google carregou o funil sozinho nesse intervalo. Quando ativo, o Meta é o canal mais eficiente dos dois: CTR de 1,90% contra 1,35% do Google, e CPC de R$ 1,49 contra R$ 1,80. A pausa não é um evento isolado: o mesmo padrão de dias zerados aparece em julho (23 a 31/07, nove dias) e no início de agosto (01–02/08), desde pelo menos junho. Soma dos dois canais no período (R$ 4.254) fica a 3,4% do investimento total da planilha diária (R$ 4.111) — as duas fontes se confirmam.
+  </div>
+
+  <h3 style="margin-top:26px;">Linha do tempo — o próprio histórico do cliente, junho a setembro</h3>
+  <p>A planilha diária completa cobre <b>01/06 a 23/09/2026</b>, 115 dias de dado real (as colunas "Semanal" e "Soma Setembro" da própria planilha são subtotais e foram excluídas da soma para não contar duas vezes). Isso muda a pergunta: setembro não está só abaixo do benchmark de mercado, está abaixo do que a própria operação já entregou nos três meses anteriores.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Mês</th><th class="num">Sessões</th><th class="num">Checkout</th><th class="num">Vendas</th><th class="num">Faturamento</th><th class="num">Investimento</th><th class="num">ROAS</th><th class="num">CAC</th></tr></thead>
+      <tbody>
+        <tr><td>Junho</td><td class="num">6.038</td><td class="num">149</td><td class="num">24</td><td class="num">R$ 7.327,80</td><td class="num">R$ 3.014,04</td><td class="num">2,43x</td><td class="num">R$ 125,58</td></tr>
+        <tr><td>Julho</td><td class="num">4.800</td><td class="num">101</td><td class="num">22</td><td class="num">R$ 8.893,80</td><td class="num">R$ 4.558,37</td><td class="num">1,95x</td><td class="num">R$ 207,20</td></tr>
+        <tr><td>Agosto</td><td class="num">4.622</td><td class="num">143</td><td class="num">33</td><td class="num">R$ 10.392,40</td><td class="num">R$ 4.322,78</td><td class="num">2,40x</td><td class="num">R$ 130,99</td></tr>
+        <tr class="hl"><td>Setembro (MTD, 23 dias)</td><td class="num">2.890</td><td class="num">91</td><td class="num">12</td><td class="num">R$ 4.337,40</td><td class="num">R$ 4.110,69</td><td class="num">1,06x</td><td class="num">R$ 342,56</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout finding" style="margin-top:16px;">
+    <span class="label">Achado — a piora é recente, não estrutural</span>
+    Em junho, julho e agosto o ROAS oscilou entre 1,95x e 2,43x e o CAC entre R$ 126 e R$ 207 — uma operação estável e lucrativa. Em setembro o ROAS caiu para 1,06x e o CAC quase triplicou para R$ 343, e isso <b>não é efeito de mês incompleto</b>: normalizando por dia, setembro investiu R$ 178,72/dia contra uma média de R$ 133,89/dia em junho-agosto — 33% a mais de verba por dia — e mesmo assim vendeu 0,52 pedido/dia contra 0,71–1,06 pedido/dia no trimestre anterior. Mais investimento diário e menos venda diária aponta para dentro do funil, não para falta de verba, e coincide no calendário com os 9 dias de Meta Ads zerado no início do mês (achado acima) e com a queda em Checkout → Venda medida na seção 04.
   </div>
 </section>
 
