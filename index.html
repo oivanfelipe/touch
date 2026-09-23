@@ -149,8 +149,10 @@ p:last-child{margin-bottom:0;}
 /* ---- tables ---- */
 .tbl-wrap{overflow-x:auto; margin-block:24px; border:1px solid var(--line); border-radius:12px;}
 table{border-collapse:collapse; width:100%; font-size:.92rem; min-width:560px;}
-th,td{padding:14px 18px; text-align:right; border-bottom:1px solid var(--line-soft); white-space:nowrap;}
-th:first-child,td:first-child{text-align:left; white-space:normal;}
+th,td{padding:14px 18px; text-align:right; border-bottom:1px solid var(--line-soft); white-space:normal; vertical-align:top;}
+th:first-child,td:first-child{text-align:left;}
+th.num,td.num{white-space:normal;}
+td.tnum-only{white-space:nowrap;}
 thead th{background:var(--accent-soft); color:var(--accent-strong); font-weight:600; font-size:.74rem; text-transform:uppercase; letter-spacing:.05em;}
 tbody tr:last-child td{border-bottom:none;}
 tbody tr.hl td{background:var(--red-soft); font-weight:600;}
@@ -291,32 +293,32 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
   <div class="hero-meta">
     <div><span class="k">Cliente</span>Touch Of Synergy — Curitiba/PR</div>
     <div><span class="k">Segmento</span>E-commerce D2C · óleos essenciais e aromaterapia premium</div>
-    <div><span class="k">Período base</span>Setembro/2026, mês em andamento (dado até 21/09)</div>
+    <div><span class="k">Período base</span>Setembro/2026, mês em andamento (dado até 23/09, recalculado direto da planilha diária)</div>
     <div><span class="k">Objetivo</span>Investigação de queda em vendas</div>
   </div>
 </div>
 
 <section id="resumo">
   <div class="section-head"><span class="section-num">01</span><h2>Resumo executivo</h2></div>
-  <p class="lede">Setembro está fechando, no ritmo atual, em torno de 20% da meta de faturamento. A causa não é falta de tráfego nem verba insuficiente: é que, de cada 100 pessoas que iniciam a finalização de compra, apenas 14 completam a compra. Corrigir essa etapa, sozinha, vale mais que triplicar o investimento em mídia no estado atual do funil.</p>
+  <p class="lede">Setembro está fechando, no ritmo atual, em torno de 17% da meta de faturamento. A causa não é falta de tráfego nem verba insuficiente: é que, de cada 100 pessoas que iniciam a finalização de compra, apenas 13 completam a compra. Corrigir essa etapa, sozinha, vale mais que triplicar o investimento em mídia no estado atual do funil.</p>
 
   <div class="grid-cards">
-    <div class="card bad"><div class="k">Faturamento vs meta</div><div class="v">20<small>%</small></div><div class="bar"><i style="width:20%"></i></div><div class="pct">R$ 4.978 de R$ 25.000</div></div>
-    <div class="card bad"><div class="k">Vendas vs meta</div><div class="v">20<small>%</small></div><div class="bar"><i style="width:20%"></i></div><div class="pct">9 de 45 vendas</div></div>
-    <div class="card"><div class="k">Ticket médio</div><div class="v tnum">R$ 553</div><div class="bar"><i style="width:100%"></i></div><div class="pct">meta R$ 550 — na meta</div></div>
-    <div class="card bad"><div class="k">ROAS real</div><div class="v tnum">1,46<small>x</small></div><div class="bar"><i style="width:29%"></i></div><div class="pct">meta 5,00x</div></div>
-    <div class="card bad"><div class="k">CAC</div><div class="v tnum">R$ 379</div><div class="bar"><i style="width:100%"></i></div><div class="pct">meta R$ 111 — 3,4x acima</div></div>
-    <div class="card bad"><div class="k">Checkout → Venda</div><div class="v tnum">14,3<small>%</small></div><div class="bar"><i style="width:24%"></i></div><div class="pct">de 63 checkouts, 9 viraram venda</div></div>
+    <div class="card bad"><div class="k">Faturamento vs meta</div><div class="v">17<small>%</small></div><div class="bar"><i style="width:17%"></i></div><div class="pct">R$ 4.337 de R$ 25.000</div></div>
+    <div class="card bad"><div class="k">Vendas vs meta</div><div class="v">27<small>%</small></div><div class="bar"><i style="width:27%"></i></div><div class="pct">12 de 45 vendas</div></div>
+    <div class="card bad"><div class="k">Ticket médio</div><div class="v tnum">R$ 361</div><div class="bar"><i style="width:66%"></i></div><div class="pct">meta R$ 550 — 66%</div></div>
+    <div class="card bad"><div class="k">ROAS real</div><div class="v tnum">1,06<small>x</small></div><div class="bar"><i style="width:21%"></i></div><div class="pct">meta 5,00x</div></div>
+    <div class="card bad"><div class="k">CAC</div><div class="v tnum">R$ 343</div><div class="bar"><i style="width:100%"></i></div><div class="pct">meta R$ 111 — 3,1x acima</div></div>
+    <div class="card bad"><div class="k">Checkout → Venda</div><div class="v tnum">13,2<small>%</small></div><div class="bar"><i style="width:22%"></i></div><div class="pct">de 91 checkouts, 12 viraram venda</div></div>
   </div>
 
   <div class="callout finding">
     <span class="label">Fato medido</span>
-    O ticket médio (R$ 553) já opera praticamente na meta (R$ 550). O problema não é o que o cliente compra — é que a imensa maioria de quem chega ao checkout não termina a compra.
+    Nenhuma métrica do funil está na meta — nem o ticket médio, que fecha em R$ 361 contra uma meta de R$ 550. Mas a distância é desproporcional: ticket médio está a 66% da meta, enquanto Checkout → Venda está a 22%. O problema não é o que o cliente compra quando decide comprar — é que a imensa maioria de quem chega ao checkout não termina a compra.
   </div>
 
   <div class="callout risk">
-    <span class="label">Achado de auditoria</span>
-    O painel mensal do cliente exibia Ticket Médio (R$ 402) e ROAS (1,26x) incompatíveis com Faturamento ÷ Vendas e Faturamento ÷ Investimento. Os valores corretos, recalculados a partir dos números brutos, são R$ 553 e 1,46x. Detalhe completo na seção 02.
+    <span class="label">Achado de auditoria — duas fontes do cliente divergem entre si</span>
+    O painel mensal (print) mostrava Faturamento de R$ 4.978 e 9 vendas em setembro, com Ticket Médio (R$ 402) e ROAS (1,26x) que nem batiam com esses dois números. A planilha diária completa, recalculada célula a célula para o mesmo período (01–23/09), mostra R$ 4.337 e 12 vendas — usada como fonte oficial desta análise por ser a mais granular e verificável. Detalhe completo na seção 03.
   </div>
 </section>
 
@@ -336,48 +338,54 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
 
 <section id="auditoria">
   <div class="section-head"><span class="section-num">03</span><h2>Auditoria de dados</h2></div>
-  <p class="lede">Antes de calcular qualquer taxa, a ARGUS audita a fonte. Dois materiais foram recebidos: o painel mensal (print) e duas planilhas, forecasting anual e funil diário. Os três não se reconciliam entre si, e isso, por si só, é um achado.</p>
+  <p class="lede">Antes de calcular qualquer taxa, a ARGUS audita a fonte. Três materiais foram recebidos ao longo da análise: o painel mensal (print), a planilha de forecasting anual e a planilha de funil diário completa. Os três não se reconciliavam entre si — esta revisão recalcula tudo célula a célula a partir da planilha diária, a fonte mais granular, e a adota como referência única.</p>
+
+  <div class="callout risk">
+    <span class="label">Fonte oficial desta análise — recalculada em 23/09/2026</span>
+    Somando linha por linha a planilha diária (Google Sheets, 01/06–23/09/2026) para o período 01–23 de setembro: <b>Sessões 2.890 · Add to cart 184 · Checkout 91 · Vendas 12 · Faturamento R$ 4.337,40 · Investimento R$ 4.110,69</b>. Todos os números do resto deste documento partem daqui. O print do painel (Vendas 9, Faturamento R$ 4.978) e a planilha de forecasting mensal (coluna "Set": 49 vendas, R$ 20.948) ficam registrados como divergência de fonte, não como dado usado no cálculo.
+  </div>
 
   <div class="tbl-wrap">
     <table>
       <thead><tr><th>Achado</th><th>Classificação</th><th class="num">Tratamento adotado</th></tr></thead>
       <tbody>
-        <tr><td>Ticket médio e ROAS do painel não fecham com Faturamento ÷ Vendas e Faturamento ÷ Investimento</td><td><span class="tag hyp">Bloqueante</span></td><td class="num">Recalculado: R$ 553 e 1,46x</td></tr>
-        <tr><td>Coluna "Set" da planilha mensal (49 vendas, R$ 20.948) soma o dobro do que o funil diário real mostra até 21/09</td><td><span class="tag hyp">Bloqueante</span></td><td class="num">Tratada como projeção de fechamento, não realizado</td></tr>
-        <tr><td>Linhas de Add to Cart/Checkout da planilha mensal usam valor fixo de 240 checkouts/mês, marcado como "opcional" pela própria planilha</td><td><span class="tag hyp">Bloqueante</span></td><td class="num">Descartada; usados os 63 checkouts reais do funil diário</td></tr>
+        <tr><td>Painel (print) mostra 9 vendas e R$ 4.978 para o período; planilha diária soma 12 vendas e R$ 4.337,40 para o mesmo período — as duas fontes do cliente divergem</td><td><span class="tag hyp">Bloqueante</span></td><td class="num">Planilha diária adotada como fonte oficial; print registrado como divergência</td></tr>
+        <tr><td>Ticket médio e ROAS do painel (R$ 402 e 1,26x) não fecham nem com os próprios números do print, nem com a planilha diária</td><td><span class="tag hyp">Bloqueante</span></td><td class="num">Recalculado a partir da planilha: R$ 361 e 1,06x</td></tr>
+        <tr><td>Coluna "Set" da planilha de forecasting mensal (49 vendas, R$ 20.948) soma mais de 4x o que a planilha diária real mostra até 23/09</td><td><span class="tag hyp">Bloqueante</span></td><td class="num">Tratada como projeção de fechamento do mês, não realizado</td></tr>
+        <tr><td>Linhas de Add to Cart/Checkout da planilha de forecasting mensal usam valor fixo de 240 checkouts/mês, marcado como "opcional" pela própria planilha</td><td><span class="tag hyp">Bloqueante</span></td><td class="num">Descartada; usados os 91 checkouts reais da planilha diária</td></tr>
         <tr><td>Faturamento captado de "Ago-Realizado" ausente na planilha de forecasting mensal</td><td><span class="tag hyp">Relevante</span></td><td class="num">Agosto tratado com confiança reduzida nessa planilha específica</td></tr>
-        <tr class="hl"><td><s>Sábados e domingos sem dado nas semanas de 17–30/08</s> — resolvido</td><td><span class="tag fact">Corrigido</span></td><td class="num">Planilha completa (01/06–23/09) recebida depois: os fins de semana têm dado normal (ex: R$ 186 e R$ 162 de investimento em 22–23/08). O arquivo anterior estava truncado, não havia pausa real de campanha.</td></tr>
-        <tr><td>Sessões (2.075) maiores que Cliques (1.464) no período — conexão acima de 100%</td><td><span class="tag hyp">Relevante</span></td><td class="num">Indica tráfego direto/orgânico misturado ao funil pago; ver linha abaixo</td></tr>
+        <tr class="hl"><td><s>Sábados e domingos sem dado nas semanas de 17–30/08</s> — resolvido</td><td><span class="tag fact">Corrigido</span></td><td class="num">Planilha diária completa mostra fim de semana normal (ex: R$ 186 e R$ 162 de investimento em 22–23/08). O arquivo usado numa rodada anterior estava truncado, não havia pausa real de campanha.</td></tr>
+        <tr><td>Sessões (2.890) maiores que Cliques (2.418) no período — conexão em 119,5%</td><td><span class="tag hyp">Relevante</span></td><td class="num">Indica tráfego direto/orgânico misturado ao funil pago; ver linha abaixo</td></tr>
         <tr><td>Duas measurement IDs do GA4 disparando ao mesmo tempo no site (G-QMJBM3H9EM e G-SBWSJS3V2H), além do GTM-W43BFLRZ</td><td><span class="tag hyp">Relevante</span></td><td class="num">Candidato a explicar a anomalia acima; requer remoção da tag duplicada no GTM</td></tr>
       </tbody>
     </table>
   </div>
-  <p style="font-size:.8rem;color:var(--ink-soft);">Planilha completa recebida em 23/09/2026 (Google Sheets, funil diário de 01/06 a 23/09/2026) — passa a ser a fonte mais granular e completa disponível. Ainda é um funil em blend único: não separa investimento por canal (Meta vs. Google), então esse ponto continua em aberto.</p>
+  <p style="font-size:.8rem;color:var(--ink-soft);">Planilha diária completa (Google Sheets, 01/06–23/09/2026) — fonte mais granular e completa disponível, recalculada linha a linha para esta revisão. Ainda é um funil em blend único: não separa sessão/venda por canal (Meta vs. Google) — investimento por canal já foi obtido à parte, ver achado abaixo.</p>
 
   <div class="callout risk">
     <span class="label">Lacuna resolvida — puxado direto das contas de anúncio via Windsor.ai em 23/09/2026</span>
-    O funil segue tratado como sistema único porque não dá pra saber quantas sessões/vendas vieram de cada canal sem UTM cruzado no GA4 — mas o investimento por canal já saiu do blend. Setembro (01–23): <b>Google Ads investiu R$ 2.857 (67% do total)</b>, Meta Ads investiu <b>R$ 1.397 (33%)</b>. E o achado mais importante: <b>o Meta Ads ficou zerado de 01 a 09/09</b>, os primeiros nove dias do mês — o Google carregou o funil sozinho nesse intervalo. Quando ativo, o Meta é o canal mais eficiente dos dois: CTR de 1,90% contra 1,35% do Google, e CPC de R$ 1,49 contra R$ 1,80. A pausa não é um evento isolado: o mesmo padrão de dias zerados aparece em julho (23 a 31/07, nove dias) e no início de agosto (01–02/08), desde pelo menos junho.
+    O funil segue tratado como sistema único porque não dá pra saber quantas sessões/vendas vieram de cada canal sem UTM cruzado no GA4 — mas o investimento por canal já saiu do blend. Setembro (01–23): <b>Google Ads investiu R$ 2.857 (67% do total)</b>, Meta Ads investiu <b>R$ 1.397 (33%)</b>. E o achado mais importante: <b>o Meta Ads ficou zerado de 01 a 09/09</b>, os primeiros nove dias do mês — o Google carregou o funil sozinho nesse intervalo. Quando ativo, o Meta é o canal mais eficiente dos dois: CTR de 1,90% contra 1,35% do Google, e CPC de R$ 1,49 contra R$ 1,80. A pausa não é um evento isolado: o mesmo padrão de dias zerados aparece em julho (23 a 31/07, nove dias) e no início de agosto (01–02/08), desde pelo menos junho. Soma dos dois canais no período (R$ 4.254) fica a 3,4% do investimento total da planilha diária (R$ 4.111) — as duas fontes se confirmam.
   </div>
 </section>
 
 <section id="funil">
   <div class="section-head"><span class="section-num">04</span><h2>Funil comparativo — de alcance a venda</h2></div>
-  <p class="lede">Setembro, mês em andamento (dado até 21/09, fonte: painel oficial do cliente). Cada etapa comparada com o benchmark de mercado disponível e com fonte citada — quando não há fonte brasileira específica, a etapa aparece sem comparação, não com um número inventado.</p>
+  <p class="lede">Setembro, mês em andamento (01–23/09, recalculado da planilha diária completa). Cada etapa comparada com o benchmark de mercado disponível e com fonte citada — quando não há fonte brasileira específica, a etapa aparece sem comparação, não com um número inventado.</p>
 
   <div class="funnel">
-    <div class="fstep"><div class="name">Alcance<span class="tag est" style="margin-left:6px;">estimado</span></div><div class="track"><div class="fill" style="width:100%;background:var(--ink-soft);">≈ 26.900</div></div><div class="val tnum">—</div></div>
-    <div class="floss">frequência média ≈ <b>4,2x</b> · cada pessoa alcançada viu o anúncio ~4 vezes</div>
-    <div class="fstep"><div class="name">Impressões</div><div class="track"><div class="fill" style="width:100%;background:var(--ink-soft);">112.643</div></div><div class="val tnum">—</div></div>
-    <div class="floss">↓ CTR de <b>1,3%</b> · dentro da faixa de mercado (0,9%–2,0%)⁴ — não é gargalo</div>
-    <div class="fstep"><div class="name">Cliques</div><div class="track"><div class="fill" style="width:100%">1.464</div></div><div class="val tnum">100%¹</div></div>
-    <div class="floss">↓ Sessões chegam a <b>142%</b> dos cliques — mais sessão do que clique pago, ver nota de medição abaixo</div>
-    <div class="fstep"><div class="name">Sessões</div><div class="track"><div class="fill" style="width:100%">2.075</div></div><div class="val tnum">142%¹</div></div>
-    <div class="floss">↓ conversão de <b>5,98%</b> · perda de <b>1.951</b> sessões · sem benchmark BR específico localizado</div>
-    <div class="fstep"><div class="name">Add to cart</div><div class="track"><div class="fill" style="width:35%">124</div></div><div class="val tnum">5,98%</div></div>
-    <div class="floss">↓ conversão de <b>50,8%</b> · perda de <b>61</b> carrinhos</div>
-    <div class="fstep"><div class="name">Checkout</div><div class="track"><div class="fill" style="width:20%">63</div></div><div class="val tnum">3,04%</div></div>
-    <div class="floss">↓ conversão de <b>14,3%</b> · perda de <b>54</b> checkouts — maior distância do benchmark</div>
-    <div class="fstep"><div class="name">Venda</div><div class="track"><div class="fill crit" style="width:10%">9</div></div><div class="val tnum">0,43%</div></div>
+    <div class="fstep"><div class="name">Alcance</div><div class="track"><div class="fill" style="width:100%;background:var(--ink-soft);">39.395</div></div><div class="val tnum">—</div></div>
+    <div class="floss">frequência média ≈ <b>4,1x</b> · cada pessoa alcançada viu o anúncio ~4 vezes (métrica medida, não mais estimada)</div>
+    <div class="fstep"><div class="name">Impressões</div><div class="track"><div class="fill" style="width:100%;background:var(--ink-soft);">163.126</div></div><div class="val tnum">—</div></div>
+    <div class="floss">↓ CTR de <b>1,5%</b> · dentro da faixa de mercado (0,9%–2,0%)⁴ — não é gargalo</div>
+    <div class="fstep"><div class="name">Cliques</div><div class="track"><div class="fill" style="width:100%">2.418</div></div><div class="val tnum">100%¹</div></div>
+    <div class="floss">↓ Sessões chegam a <b>119,5%</b> dos cliques — mais sessão do que clique pago, ver nota de medição abaixo</div>
+    <div class="fstep"><div class="name">Sessões</div><div class="track"><div class="fill" style="width:100%">2.890</div></div><div class="val tnum">119,5%¹</div></div>
+    <div class="floss">↓ conversão de <b>6,37%</b> · perda de <b>2.706</b> sessões · sem benchmark BR específico localizado</div>
+    <div class="fstep"><div class="name">Add to cart</div><div class="track"><div class="fill" style="width:36%">184</div></div><div class="val tnum">6,37%</div></div>
+    <div class="floss">↓ conversão de <b>49,5%</b> · perda de <b>93</b> carrinhos</div>
+    <div class="fstep"><div class="name">Checkout</div><div class="track"><div class="fill" style="width:19%">91</div></div><div class="val tnum">3,15%</div></div>
+    <div class="floss">↓ conversão de <b>13,2%</b> · perda de <b>79</b> checkouts — maior distância do benchmark</div>
+    <div class="fstep"><div class="name">Venda</div><div class="track"><div class="fill crit" style="width:8%">12</div></div><div class="val tnum">0,42%</div></div>
   </div>
   <p style="font-size:.72rem;color:var(--ink-soft);">¹ Conversão acumulada calculada a partir de Cliques (primeira etapa paga sequencial); Alcance e Impressões são métricas de exposição, não de funil sequencial, por isso aparecem sem percentual acumulado.</p>
 
@@ -386,18 +394,18 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
     <table>
       <thead><tr><th>Etapa</th><th class="num">Touch Of Synergy</th><th class="num">Benchmark citado</th><th class="num">Distância</th></tr></thead>
       <tbody>
-        <tr><td>CTR (Impressões → Clique)</td><td class="num">1,3%</td><td class="num">0,9%–2,0%⁴</td><td class="num"><span class="tag fact">dentro da faixa</span></td></tr>
-        <tr><td>Sessão → Add to cart</td><td class="num">5,98%</td><td class="num">sem fonte BR localizada</td><td class="num"><span class="tag est">não comparável</span></td></tr>
-        <tr class="hl"><td>Add to cart → Venda (abandono de carrinho)</td><td class="num">7,3%</td><td class="num">17%–35%⁵</td><td class="num">2,3x a 4,8x abaixo</td></tr>
-        <tr><td>Conversão geral (Sessão → Venda)</td><td class="num">0,43%</td><td class="num">2,9% categoria¹ · 1,65% piso geral¹</td><td class="num">3,8x a 6,7x abaixo</td></tr>
+        <tr><td>CTR (Impressões → Clique)</td><td class="num">1,5%</td><td class="num">0,9%–2,0%⁴</td><td class="num"><span class="tag fact">dentro da faixa</span></td></tr>
+        <tr><td>Sessão → Add to cart</td><td class="num">6,37%</td><td class="num">sem fonte BR localizada</td><td class="num"><span class="tag est">não comparável</span></td></tr>
+        <tr class="hl"><td>Add to cart → Venda (abandono de carrinho)</td><td class="num">6,52%</td><td class="num">17%–35%⁵</td><td class="num">2,6x a 5,4x abaixo</td></tr>
+        <tr><td>Conversão geral (Sessão → Venda)</td><td class="num">0,42%</td><td class="num">2,9% categoria¹ · 1,65% piso geral¹</td><td class="num">3,9x a 6,9x abaixo</td></tr>
       </tbody>
     </table>
   </div>
-  <p style="font-size:.78rem;color:var(--ink-soft);">O abandono de carrinho médio no e-commerce brasileiro fica entre 65% e 83,1% conforme a fonte⁵ — ou seja, uma operação típica completa entre 17% e 35% dos carrinhos iniciados. A Touch Of Synergy completa 7,3%: mesmo no cenário mais pessimista do mercado nacional, o resultado atual está de 2,3 a 4,8 vezes pior. Esse é o maior gap percentual de todo o funil, sourced e confirmado por duas fontes independentes.</p>
+  <p style="font-size:.78rem;color:var(--ink-soft);">O abandono de carrinho médio no e-commerce brasileiro fica entre 65% e 83,1% conforme a fonte⁵ — ou seja, uma operação típica completa entre 17% e 35% dos carrinhos iniciados. A Touch Of Synergy completa 6,52%: mesmo no cenário mais pessimista do mercado nacional, o resultado atual está de 2,6 a 5,4 vezes pior. Esse é o maior gap percentual de todo o funil, sourced e confirmado por duas fontes independentes.</p>
 
   <div class="callout finding" style="margin-top:20px;">
     <span class="label">Leitura da cadeia</span>
-    A maior perda em <b>volume absoluto</b> acontece entre Sessão e Carrinho (1.951 sessões). Mas a maior perda em <b>distância do benchmark citado</b> acontece entre Carrinho e Venda: mesmo comparado ao pior cenário nacional de abandono de carrinho, a Touch Of Synergy está fora da curva. Essas duas leituras não apontam para o mesmo lugar — e é exatamente aí que entra a Teoria das Restrições, na próxima seção.
+    A maior perda em <b>volume absoluto</b> acontece entre Sessão e Carrinho (2.706 sessões). Mas a maior perda em <b>distância do benchmark citado</b> acontece entre Carrinho e Venda: mesmo comparado ao pior cenário nacional de abandono de carrinho, a Touch Of Synergy está fora da curva. Essas duas leituras não apontam para o mesmo lugar — e é exatamente aí que entra a Teoria das Restrições, na próxima seção.
   </div>
 </section>
 
@@ -409,10 +417,10 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
     <table>
       <thead><tr><th>Vetor</th><th class="num">Sessão → Carrinho</th><th class="num">Checkout → Venda</th></tr></thead>
       <tbody>
-        <tr><td>Volume perdido (unidades)</td><td class="num">1.951</td><td class="num">54</td></tr>
-        <tr><td>Custo do volume perdido</td><td class="num">R$ 3.200</td><td class="num">R$ 2.923</td></tr>
-        <tr><td>Distância do benchmark</td><td class="num">5,98% · sem fonte BR</td><td class="num">Add to cart→Venda 7,3% vs. 17–35% BR⁵</td></tr>
-        <tr class="hl"><td>Ganho projetado se corrigida (mesmo período, mesma verba)</td><td class="num">+5 vendas · +R$ 2.544</td><td class="num">+16 vendas · +R$ 8.959</td></tr>
+        <tr><td>Volume perdido (unidades)</td><td class="num">2.706</td><td class="num">79</td></tr>
+        <tr><td>Custo do volume perdido</td><td class="num">R$ 3.849</td><td class="num">R$ 3.569</td></tr>
+        <tr><td>Distância do benchmark</td><td class="num">6,37% · sem fonte BR</td><td class="num">Add to cart→Venda 6,52% vs. 17–35% BR⁵</td></tr>
+        <tr class="hl"><td>Ganho projetado se corrigida (mesmo período, mesma verba)</td><td class="num">+5 vendas · +R$ 1.794</td><td class="num">+24 vendas · +R$ 8.819</td></tr>
         <tr><td>Efeito cascata</td><td class="num">Multiplica pelas 2 etapas seguintes</td><td class="num">Direto em receita, sem perdas posteriores</td></tr>
       </tbody>
     </table>
@@ -420,7 +428,7 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
 
   <div class="callout finding">
     <span class="label">Restrição principal — sistema consolidado</span>
-    <b>Checkout → Venda.</b> Apesar de perder menos volume em números absolutos, é a etapa mais distante do padrão esperado e a mais próxima da receita — cada checkout que chega ali já consumiu praticamente todo o custo de aquisição. Corrigi-la vale 3,5x mais faturamento, no mesmo período e sem investir um real a mais em mídia, do que corrigir o topo do funil.
+    <b>Checkout → Venda.</b> Apesar de perder menos volume em números absolutos, é a etapa mais distante do padrão esperado e a mais próxima da receita — cada checkout que chega ali já consumiu praticamente todo o custo de aquisição. Corrigi-la vale quase 5x mais faturamento, no mesmo período e sem investir um real a mais em mídia, do que corrigir o topo do funil.
   </div>
 
   <h3 style="margin-top:24px;">Descarte da restrição falsa</h3>
@@ -451,9 +459,8 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
     <table>
       <thead><tr><th>Está funcionando</th><th class="num">Evidência</th></tr></thead>
       <tbody>
-        <tr><td>Ticket médio</td><td class="num">R$ 553 — praticamente na meta de R$ 550</td></tr>
-        <tr><td>Qualidade do criativo/segmentação de topo</td><td class="num">CTR 1,3% — dentro da faixa de mercado (0,9%–2,0%)</td></tr>
-        <tr><td>Carrinho → Checkout</td><td class="num">50,8% de quem adiciona ao carrinho chega a iniciar o checkout — taxa saudável</td></tr>
+        <tr><td>Qualidade do criativo/segmentação de topo</td><td class="num">CTR 1,5% — dentro da faixa de mercado (0,9%–2,0%)</td></tr>
+        <tr><td>Carrinho → Checkout</td><td class="num">49,5% de quem adiciona ao carrinho chega a iniciar o checkout — taxa saudável</td></tr>
         <tr><td>Produto, preço e posicionamento</td><td class="num">Faixa premium justificada por certificação europeia e curadoria — não é o que afasta o cliente</td></tr>
         <tr><td>Percepção de marca</td><td class="num">Avaliações no Google consistentemente 5 estrelas</td></tr>
       </tbody>
@@ -464,20 +471,21 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
     <table>
       <thead><tr><th>Não está funcionando</th><th class="num">Evidência</th><th>Ação de melhoria</th></tr></thead>
       <tbody>
-        <tr class="hl"><td>Checkout → Venda</td><td class="num">14,3% (7,3% sobre carrinho) — 2,3 a 4,8x abaixo do pior cenário nacional</td><td>Arsenal tático de fundo de funil (seção 07)</td></tr>
-        <tr><td>ROAS</td><td class="num">1,46x vs. meta 5,00x</td><td>Consequência direta do checkout — não corrigir mídia até resolver a restrição</td></tr>
-        <tr><td>CAC</td><td class="num">R$ 379 vs. meta R$ 111 — 3,4x acima</td><td>Idem — CAC cai automaticamente quando o checkout converte mais</td></tr>
+        <tr class="hl"><td>Checkout → Venda</td><td class="num">13,2% (6,52% sobre carrinho) — 2,6 a 5,4x abaixo do pior cenário nacional</td><td>Arsenal tático de fundo de funil (seção 07)</td></tr>
+        <tr><td>Ticket médio</td><td class="num">R$ 361 vs. meta R$ 550 — a 66% da meta</td><td>Consequência indireta do checkout: carrinhos maiores tendem a hesitar mais no frete e no pagamento</td></tr>
+        <tr><td>ROAS</td><td class="num">1,06x vs. meta 5,00x</td><td>Consequência direta do checkout — não corrigir mídia até resolver a restrição</td></tr>
+        <tr><td>CAC</td><td class="num">R$ 343 vs. meta R$ 111 — 3,1x acima</td><td>Idem — CAC cai automaticamente quando o checkout converte mais</td></tr>
         <tr><td>Rastreamento do GA4</td><td class="num">Duas measurement IDs disparando ao mesmo tempo</td><td>Auditoria de tags no GTM, remover a duplicada (seção 03)</td></tr>
         <tr><td>Responsividade ao toque (INP) no mobile</td><td class="num">232ms, só 28% das interações dentro do limite bom — dado de campo real</td><td>Investigar scripts pesados no clique de add-to-cart e nas transições do checkout (seção 05)</td></tr>
         <tr><td>Sinalizadores de confiança no checkout</td><td class="num">Sem Pix com desconto exposto, sem parcelamento exposto, sem contador de avaliações — concorrentes maduros já têm</td><td>Replicar os 5 itens do gap competitivo (seção 10)</td></tr>
-        <tr><td>Ritmo de fechamento do mês</td><td class="num">Run-rate aponta ~28% da meta de faturamento</td><td>Ver cenários de recuperação (seção 08)</td></tr>
+        <tr><td>Ritmo de fechamento do mês</td><td class="num">Run-rate aponta ~23% da meta de faturamento</td><td>Ver cenários de recuperação (seção 08)</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="callout finding">
     <span class="label">Leitura do replanejamento</span>
-    Tudo que está funcionando fica no topo e no meio do funil — tráfego, criativo, ticket médio, posicionamento. Tudo que não está funcionando fica no fim do funil e na instrumentação. Isso simplifica a decisão: não é hora de aumentar verba de mídia nem de repensar produto ou preço. É hora de parar de perder, no checkout, o que o topo do funil já está entregando corretamente.
+Tudo que está funcionando fica no topo e no meio do funil — tráfego, criativo, posicionamento. Tudo que não está funcionando, incluindo o ticket médio abaixo da meta, converge para o mesmo lugar: o fim do funil e a instrumentação. Isso simplifica a decisão: não é hora de aumentar verba de mídia nem de repensar produto ou preço. É hora de parar de perder, no checkout, o que o topo do funil já está entregando corretamente.
   </div>
 </section>
 
@@ -499,7 +507,7 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
     </div>
     <div class="tactic-card">
       <div class="thead"><h4>Rever o limiar de frete grátis ou a taxa fixa</h4></div>
-      <div class="desc">R$ 300 é alto para o ticket médio real (R$ 553, mas muitos carrinhos individuais ficam abaixo). Testar limiar mais baixo (R$ 150–200) ou embutir o frete no preço de produtos de entrada.</div>
+      <div class="desc">R$ 300 é alto para o ticket médio real (R$ 361 — abaixo da própria meta de R$ 550, e a maioria dos carrinhos fica longe do limiar de frete grátis). Testar limiar mais baixo (R$ 150–200) ou embutir o frete no preço de produtos de entrada.</div>
       <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge high">Impacto alto</span><span class="badge evidence">Carrinho R$ 152 → R$ 176,90</span></div>
     </div>
     <div class="tactic-card">
@@ -599,31 +607,31 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
 
 <section id="cenarios">
   <div class="section-head"><span class="section-num">08</span><h2>Cenários</h2></div>
-  <p class="lede">Projeção de fechamento de setembro nos 30 dias, com o ritmo diário observado até 21/09. Estimativa de run-rate, não meta contratual.</p>
+  <p class="lede">Projeção de fechamento de setembro nos 30 dias, com o ritmo diário observado até 23/09 (23 de 30 dias, 77% do mês). Estimativa de run-rate, não meta contratual.</p>
   <div class="scenarios">
     <div class="scenario">
       <h4>Atual — sem mudança</h4>
       <div class="desc">Mantendo o ritmo observado até aqui</div>
-      <div class="row"><span>Vendas no mês</span><b class="tnum">≈ 13</b></div>
-      <div class="row"><span>Faturamento</span><b class="tnum">≈ R$ 7.100</b></div>
-      <div class="row"><span>% da meta</span><b class="tnum">28%</b></div>
+      <div class="row"><span>Vendas no mês</span><b class="tnum">≈ 16</b></div>
+      <div class="row"><span>Faturamento</span><b class="tnum">≈ R$ 5.660</b></div>
+      <div class="row"><span>% da meta</span><b class="tnum">23%</b></div>
     </div>
     <div class="scenario hero-scenario">
       <h4>Correção de checkout</h4>
-      <div class="desc">Checkout → Venda sobe de 14,3% para 40%, mesma verba, mesmo tráfego</div>
-      <div class="row"><span>Vendas no mês</span><b class="tnum">≈ 36</b></div>
-      <div class="row"><span>Faturamento</span><b class="tnum">≈ R$ 19.700</b></div>
-      <div class="row"><span>% da meta</span><b class="tnum">79%</b></div>
+      <div class="desc">Checkout → Venda sobe de 13,2% para 40%, mesma verba, mesmo tráfego</div>
+      <div class="row"><span>Vendas no mês</span><b class="tnum">≈ 47</b></div>
+      <div class="row"><span>Faturamento</span><b class="tnum">≈ R$ 17.200</b></div>
+      <div class="row"><span>% da meta</span><b class="tnum">69%</b></div>
     </div>
     <div class="scenario">
       <h4>Checkout + topo de funil</h4>
       <div class="desc">Soma a correção de checkout com Sessão → Carrinho subindo para ~9%</div>
-      <div class="row"><span>Vendas no mês</span><b class="tnum">≈ 41–45</b></div>
-      <div class="row"><span>Faturamento</span><b class="tnum">≈ R$ 22.600–25.000</b></div>
-      <div class="row"><span>% da meta</span><b class="tnum">90–100%</b></div>
+      <div class="row"><span>Vendas no mês</span><b class="tnum">≈ 67</b></div>
+      <div class="row"><span>Faturamento</span><b class="tnum">≈ R$ 24.250</b></div>
+      <div class="row"><span>% da meta</span><b class="tnum">≈ 97%</b></div>
     </div>
   </div>
-  <p style="font-size:.8rem;color:var(--ink-soft);">Projeções lineares a partir do ritmo diário de 01–21/09, propagando as taxas atuais nas demais etapas. Marcadas como estimativa — não substituem teste real em produção.</p>
+  <p style="font-size:.8rem;color:var(--ink-soft);">Projeções lineares a partir do ritmo diário de 01–23/09, propagando as taxas atuais nas demais etapas. Marcadas como estimativa — não substituem teste real em produção.</p>
 </section>
 
 <section id="plano">
@@ -633,7 +641,7 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
   <div class="plan-group p1">
     <div class="ghead"><span class="pnum">1</span><h3 style="margin:0;">Restrição principal — Checkout → Venda</h3></div>
     <div class="plan-list">
-      <div class="plan-item"><div><div class="t">Gravar sessão dos checkouts (Hotjar ou Clarity)</div><div class="d">Assistir aos 63 checkouts de setembro para localizar o ponto exato de abandono antes de mudar qualquer coisa no fluxo.</div></div><div class="impact">Diagnóstico</div></div>
+      <div class="plan-item"><div><div class="t">Gravar sessão dos checkouts (Hotjar ou Clarity)</div><div class="d">Assistir aos 91 checkouts de setembro (01–23) para localizar o ponto exato de abandono antes de mudar qualquer coisa no fluxo.</div></div><div class="impact">Diagnóstico</div></div>
       <div class="plan-item"><div><div class="t">Antecipar o frete no carrinho, antes do checkout</div><div class="d">Frete grátis hoje é condicional (acima de R$ 300, ou só Curitiba) — testar se o valor surpresa no checkout é o motivo do abandono.</div></div><div class="impact">Alta</div></div>
       <div class="plan-item"><div><div class="t">Subir o desconto do Pix para a página de produto e o carrinho</div><div class="d">O desconto já existe (confirmado pelo cliente), mas só aparece na etapa 4 de 4 do checkout. By Samia expõe o mesmo tipo de desconto desde a home — é literalmente copiar um recurso que a Touch Of Synergy já tem, só mudando onde ele aparece.</div></div><div class="impact">Alta</div></div>
       <div class="plan-item"><div><div class="t">Expor parcelamento sem juros (3x a 6x) desde a página de produto</div><div class="d">By Samia e Phytoterápica mostram isso antes mesmo do carrinho. Hoje não está visível em lugar nenhum do funil da Touch Of Synergy.</div></div><div class="impact">Alta</div></div>
@@ -805,7 +813,7 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
     <ol>
       <li>Taxas de conversão por categoria e média geral do e-commerce brasileiro: dados consolidados Neotrust/Ebit Nielsen, compilados em <a href="https://www.prax.ai/blog/benchmark-taxa-de-conversao" target="_blank" rel="noopener">Prax Analytics, Relatório de Benchmark 2025</a> e <a href="https://babitonhela.com/blog/taxa-conversao-media-ecommerce-brasileiro-dados/" target="_blank" rel="noopener">Babi Tonhela, Taxa de Conversão Média no E-commerce Brasileiro</a>.</li>
       <li>Sessão → Add to cart: sem fonte brasileira específica localizada nesta pesquisa — etapa reportada sem comparação, não com um número inventado.</li>
-      <li>Alcance estimado a partir da razão Alcance/Impressões observada no funil diário do próprio cliente (17/08–21/09/2026) aplicada ao Impressões oficial do painel — marcado como estimativa, não fato medido.</li>
+      <li>Alcance: medido diretamente na planilha diária do cliente (39.395 no período 01–23/09/2026) — nas rodadas anteriores desta análise era estimado por uma razão Alcance/Impressões; a planilha completa trouxe o dado real.</li>
       <li>CTR médio de e-commerce (0,9%–2,0%): <a href="https://www.webfx.com/blog/social-media/meta-benchmarks/" target="_blank" rel="noopener">WordStream, via WebFX, Meta Marketing Benchmarks 2026</a>.</li>
       <li>Taxa de abandono de carrinho no Brasil (65%–83,1%, logo completion de 17%–35%): <a href="https://ecombase.com.br/blog/por-que-8-em-cada-10-compradores-abandonam-o-carrinho-no-e-commerce-saiba-como-reduzir" target="_blank" rel="noopener">Ecombase, dados consolidados de mercado BR</a> e <a href="https://www.revistavarejobrasil.com.br/abandono-de-carrinho-taxa-chega-a-82-veja-as-principais-causas-e-como-evitar/" target="_blank" rel="noopener">Revista Varejo Brasil, citando Baymard Institute, 2025</a>.</li>
       <li>Perfis de concorrentes (By Samia, Phytoterápica, WNF, Via Aroma): auditoria direta dos sites oficiais <a href="https://www.bysamia.com.br/" target="_blank" rel="noopener">bysamia.com.br</a>, <a href="https://loja.phytoterapica.com.br/" target="_blank" rel="noopener">loja.phytoterapica.com.br</a>, <a href="https://www.wnf.com.br/" target="_blank" rel="noopener">wnf.com.br</a> e <a href="https://www.viaaroma.com.br/" target="_blank" rel="noopener">viaaroma.com.br</a>, realizada em 23/09/2026. BioEssência (bioessencia.com.br) foi excluída da comparação: bloqueou o acesso automatizado (HTTP 403) e os dados públicos não eram suficientes.</li>
@@ -820,7 +828,7 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
     <div class="confidence">
       <span>Confiança geral da análise:</span>
       <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div>
-      <span>Muito alta — funil diário completo desde junho, auditado e sem lacunas de fim de semana; investimento por canal puxado direto das contas de anúncio; benchmarks de CTR, abandono de carrinho e canais de recuperação têm fonte brasileira nomeada; concorrentes vêm de auditoria direta dos próprios sites (quatro dos cinco mapeados — BioEssência excluída por bloqueio de acesso). Resta em aberto apenas sessão/venda por canal, que exige cruzar UTM no GA4.</span>
+      <span>Muito alta — todos os números de setembro desta revisão foram recalculados célula a célula direto da planilha diária (01–23/09), não de leitura visual do print; funil completo desde junho, sem lacunas de fim de semana; investimento por canal puxado direto das contas de anúncio; benchmarks de CTR, abandono de carrinho e canais de recuperação têm fonte brasileira nomeada; concorrentes vêm de auditoria direta dos próprios sites (quatro dos cinco mapeados — BioEssência excluída por bloqueio de acesso). Resta em aberto apenas sessão/venda por canal, que exige cruzar UTM no GA4.</span>
     </div>
   </div>
 </section>
