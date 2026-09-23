@@ -300,20 +300,19 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
 
 <section id="resumo">
   <div class="section-head"><span class="section-num">01</span><h2>Resumo executivo</h2></div>
-  <p class="lede">Setembro está fechando, no ritmo atual, em torno de 17% da meta de faturamento. A causa não é falta de tráfego nem verba insuficiente: é que, de cada 100 pessoas que iniciam a finalização de compra, apenas 13 completam a compra. Corrigir essa etapa, sozinha, vale mais que triplicar o investimento em mídia no estado atual do funil.</p>
+  <p class="lede">De cada 100 pessoas que chegam ao carrinho, só 6,5 terminam a compra. O mercado nacional, mesmo no cenário mais pessimista de abandono de carrinho, completa entre 17 e 35. Das cinco etapas do funil com benchmark de mercado disponível, essa é a única fora da curva — e é nela que está o principal problema do cliente.</p>
 
   <div class="grid-cards">
-    <div class="card bad"><div class="k">Faturamento vs meta</div><div class="v">17<small>%</small></div><div class="bar"><i style="width:17%"></i></div><div class="pct">R$ 4.337 de R$ 25.000</div></div>
-    <div class="card bad"><div class="k">Vendas vs meta</div><div class="v">27<small>%</small></div><div class="bar"><i style="width:27%"></i></div><div class="pct">12 de 45 vendas</div></div>
-    <div class="card bad"><div class="k">Ticket médio</div><div class="v tnum">R$ 361</div><div class="bar"><i style="width:66%"></i></div><div class="pct">meta R$ 550 — 66%</div></div>
-    <div class="card bad"><div class="k">ROAS real</div><div class="v tnum">1,06<small>x</small></div><div class="bar"><i style="width:21%"></i></div><div class="pct">meta 5,00x</div></div>
-    <div class="card bad"><div class="k">CAC</div><div class="v tnum">R$ 343</div><div class="bar"><i style="width:100%"></i></div><div class="pct">meta R$ 111 — 3,1x acima</div></div>
-    <div class="card bad"><div class="k">Checkout → Venda</div><div class="v tnum">13,2<small>%</small></div><div class="bar"><i style="width:22%"></i></div><div class="pct">de 91 checkouts, 12 viraram venda</div></div>
+    <div class="card"><div class="k">CTR</div><div class="v tnum">1,5<small>%</small></div><div class="pct"><span class="tag fact">dentro da faixa</span> 0,9%–2,0%</div></div>
+    <div class="card"><div class="k">Sessão → Carrinho</div><div class="v tnum">6,37<small>%</small></div><div class="pct"><span class="tag est">sem benchmark BR</span></div></div>
+    <div class="card"><div class="k">Carrinho → Checkout</div><div class="v tnum">49,5<small>%</small></div><div class="pct"><span class="tag fact">taxa saudável</span></div></div>
+    <div class="card bad"><div class="k">Checkout → Venda</div><div class="v tnum">13,2<small>%</small></div><div class="pct">6,52% sobre carrinho — 2,6 a 5,4x abaixo do benchmark BR (17%–35%)</div></div>
+    <div class="card bad"><div class="k">Conversão geral</div><div class="v tnum">0,42<small>%</small></div><div class="pct">3,9 a 6,9x abaixo do benchmark de categoria</div></div>
   </div>
 
   <div class="callout finding">
     <span class="label">Fato medido</span>
-    Nenhuma métrica do funil está na meta — nem o ticket médio, que fecha em R$ 361 contra uma meta de R$ 550. Mas a distância é desproporcional: ticket médio está a 66% da meta, enquanto Checkout → Venda está a 22%. O problema não é o que o cliente compra quando decide comprar — é que a imensa maioria de quem chega ao checkout não termina a compra.
+    CTR está dentro da faixa de mercado. Carrinho → Checkout está saudável (49,5%). Sessão → Carrinho não tem benchmark brasileiro localizado para comparar. O único ponto fora da curva, e de longe o mais distante do que o mercado nacional entrega, é Checkout → Venda: de 91 checkouts iniciados em setembro, só 12 viraram compra. O problema não é o que o cliente compra quando decide comprar — é que a imensa maioria de quem chega ao checkout não termina a compra.
   </div>
 
   <div class="callout finding">
@@ -338,7 +337,7 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
 
 <section id="auditoria">
   <div class="section-head"><span class="section-num">03</span><h2>Auditoria de dados</h2></div>
-  <p class="lede">Base única desta análise: a planilha de funil diário do próprio cliente (Google Sheets, 01/06–23/09/2026, 115 dias linha a linha). É a fonte mais granular e completa disponível — o painel mensal (print) e a planilha de forecasting anual, usados em rodadas anteriores, saíram da base de cálculo e aparecem só onde ainda têm função própria (metas do forecasting, ver seção 01).</p>
+  <p class="lede">Base única desta análise: a planilha de funil diário do próprio cliente (Google Sheets, 01/06–23/09/2026, 115 dias linha a linha). É a fonte mais granular e completa disponível — o painel mensal (print) e a planilha de forecasting anual, usados em rodadas anteriores, saíram da base de cálculo. O foco desta análise é a taxa de cada etapa do funil comparada ao benchmark de mercado, não metas de faturamento.</p>
 
   <div class="callout risk">
     <span class="label">Fonte oficial desta análise — recalculada em 23/09/2026</span>
@@ -493,20 +492,17 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
       <thead><tr><th>Não está funcionando</th><th class="num">Evidência</th><th>Ação de melhoria</th></tr></thead>
       <tbody>
         <tr class="hl"><td>Checkout → Venda</td><td class="num">13,2% (6,52% sobre carrinho) — 2,6 a 5,4x abaixo do pior cenário nacional</td><td>Arsenal tático de fundo de funil (seção 07)</td></tr>
-        <tr><td>Ticket médio</td><td class="num">R$ 361 vs. meta R$ 550 — a 66% da meta</td><td>Consequência indireta do checkout: carrinhos maiores tendem a hesitar mais no frete e no pagamento</td></tr>
-        <tr><td>ROAS</td><td class="num">1,06x vs. meta 5,00x</td><td>Consequência direta do checkout — não corrigir mídia até resolver a restrição</td></tr>
-        <tr><td>CAC</td><td class="num">R$ 343 vs. meta R$ 111 — 3,1x acima</td><td>Idem — CAC cai automaticamente quando o checkout converte mais</td></tr>
+        <tr><td>Conversão geral (Sessão → Venda)</td><td class="num">0,42% — 3,9 a 6,9x abaixo do benchmark de categoria</td><td>Consequência direta do gargalo no checkout</td></tr>
         <tr><td>Rastreamento do GA4</td><td class="num">Duas measurement IDs disparando ao mesmo tempo</td><td>Auditoria de tags no GTM, remover a duplicada (seção 03)</td></tr>
         <tr><td>Responsividade ao toque (INP) no mobile</td><td class="num">232ms, só 28% das interações dentro do limite bom — dado de campo real</td><td>Investigar scripts pesados no clique de add-to-cart e nas transições do checkout (seção 05)</td></tr>
         <tr><td>Sinalizadores de confiança no checkout</td><td class="num">Sem Pix com desconto exposto, sem parcelamento exposto, sem contador de avaliações — concorrentes maduros já têm</td><td>Replicar os 5 itens do gap competitivo (seção 10)</td></tr>
-        <tr><td>Ritmo de fechamento do mês</td><td class="num">Run-rate aponta ~23% da meta de faturamento</td><td>Ver cenários de recuperação (seção 08)</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="callout finding">
     <span class="label">Leitura do replanejamento</span>
-Tudo que está funcionando fica no topo e no meio do funil — tráfego, criativo, posicionamento. Tudo que não está funcionando, incluindo o ticket médio abaixo da meta, converge para o mesmo lugar: o fim do funil e a instrumentação. Isso simplifica a decisão: não é hora de aumentar verba de mídia nem de repensar produto ou preço. É hora de parar de perder, no checkout, o que o topo do funil já está entregando corretamente.
+Tudo que está funcionando fica no topo e no meio do funil — tráfego, criativo, posicionamento. Tudo que não está funcionando converge para o mesmo lugar: o fim do funil e a instrumentação. Isso simplifica a decisão: não é hora de aumentar verba de mídia nem de repensar produto ou preço. É hora de parar de perder, no checkout, o que o topo do funil já está entregando corretamente.
   </div>
 </section>
 
@@ -528,7 +524,7 @@ Tudo que está funcionando fica no topo e no meio do funil — tráfego, criativ
     </div>
     <div class="tactic-card">
       <div class="thead"><h4>Rever o limiar de frete grátis ou a taxa fixa</h4></div>
-      <div class="desc">R$ 300 é alto para o ticket médio real (R$ 361 — abaixo da própria meta de R$ 550, e a maioria dos carrinhos fica longe do limiar de frete grátis). Testar limiar mais baixo (R$ 150–200) ou embutir o frete no preço de produtos de entrada.</div>
+      <div class="desc">R$ 300 é alto para o ticket médio real observado (R$ 361) — a maioria dos carrinhos fica longe do limiar de frete grátis. Testar limiar mais baixo (R$ 150–200) ou embutir o frete no preço de produtos de entrada.</div>
       <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge high">Impacto alto</span><span class="badge evidence">Carrinho R$ 152 → R$ 176,90</span></div>
     </div>
     <div class="tactic-card">
@@ -628,28 +624,28 @@ Tudo que está funcionando fica no topo e no meio do funil — tráfego, criativ
 
 <section id="cenarios">
   <div class="section-head"><span class="section-num">08</span><h2>Cenários</h2></div>
-  <p class="lede">Projeção de fechamento de setembro nos 30 dias, com o ritmo diário observado até 23/09 (23 de 30 dias, 77% do mês). Estimativa de run-rate, não meta contratual.</p>
+  <p class="lede">Projeção de fechamento de setembro nos 30 dias, com o ritmo diário observado até 23/09 (23 de 30 dias, 77% do mês) — o que muda no faturamento quando a taxa de cada etapa se aproxima do benchmark de mercado, mesma verba e mesmo tráfego.</p>
   <div class="scenarios">
     <div class="scenario">
       <h4>Atual — sem mudança</h4>
       <div class="desc">Mantendo o ritmo observado até aqui</div>
       <div class="row"><span>Vendas no mês</span><b class="tnum">≈ 16</b></div>
       <div class="row"><span>Faturamento</span><b class="tnum">≈ R$ 5.660</b></div>
-      <div class="row"><span>% da meta</span><b class="tnum">23%</b></div>
+      <div class="row"><span>Checkout → Venda</span><b class="tnum">13,2%</b></div>
     </div>
     <div class="scenario hero-scenario">
       <h4>Correção de checkout</h4>
       <div class="desc">Checkout → Venda sobe de 13,2% para 40%, mesma verba, mesmo tráfego</div>
       <div class="row"><span>Vendas no mês</span><b class="tnum">≈ 47</b></div>
       <div class="row"><span>Faturamento</span><b class="tnum">≈ R$ 17.200</b></div>
-      <div class="row"><span>% da meta</span><b class="tnum">69%</b></div>
+      <div class="row"><span>Checkout → Venda</span><b class="tnum">40% <small>· dentro do benchmark BR (17–35%)⁵</small></b></div>
     </div>
     <div class="scenario">
       <h4>Checkout + topo de funil</h4>
       <div class="desc">Soma a correção de checkout com Sessão → Carrinho subindo para ~9%</div>
       <div class="row"><span>Vendas no mês</span><b class="tnum">≈ 67</b></div>
       <div class="row"><span>Faturamento</span><b class="tnum">≈ R$ 24.250</b></div>
-      <div class="row"><span>% da meta</span><b class="tnum">≈ 97%</b></div>
+      <div class="row"><span>Checkout → Venda</span><b class="tnum">40% <small>· dentro do benchmark BR</small></b></div>
     </div>
   </div>
   <p style="font-size:.8rem;color:var(--ink-soft);">Projeções lineares a partir do ritmo diário de 01–23/09, propagando as taxas atuais nas demais etapas. Marcadas como estimativa — não substituem teste real em produção.</p>
