@@ -386,7 +386,7 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
     <div class="card"><div class="k">Cliques</div><div class="v tnum" style="font-size:1.3rem;">2.418</div><div class="pct">CTR 1,5% do impresso</div></div>
     <div class="card"><div class="k">CTR vs. benchmark</div><div class="v tnum" style="font-size:1.3rem;">1,5<small>%</small></div><div class="pct">0,9%–2,0% — dentro da faixa, não é gargalo</div></div>
   </div>
-  <p style="font-size:.78rem;color:var(--ink-soft);margin-top:10px;">Essas quatro métricas ficam fora da cadeia sequencial abaixo — não dá pra "acumular %" de Alcance até Venda porque a mesma pessoa é impactada em média 4,1 vezes antes de clicar uma única vez. Benchmark de CTR (0,9%–2,0%): WordStream/WebFX, Meta Marketing Benchmarks 2026⁴ — fonte completa na seção 12.</p>
+  <p style="font-size:.78rem;color:var(--ink-soft);margin-top:10px;">Essas quatro métricas ficam fora da cadeia sequencial abaixo — não dá pra "acumular %" de Alcance até Venda porque a mesma pessoa é impactada em média 4,1 vezes antes de clicar uma única vez. Benchmark de CTR (0,9%–2,0%): WordStream/WebFX, Meta Marketing Benchmarks 2026 — fonte completa na seção 12.</p>
 
   <h3 style="margin-top:30px;">A cadeia sequencial — dois funis, lado a lado</h3>
   <p style="font-size:.85rem;color:var(--ink-soft);">O formato de cada funil é a % acumulada a partir de Sessão (largura ilustrativa, não em escala linear — os números em cada faixa são os reais). Repare onde a Touch Of Synergy é mais larga que o benchmark (Carrinho → Checkout, ela converte melhor) e onde ela fecha muito mais rápido (Checkout → Venda, o gargalo).</p>
@@ -444,7 +444,7 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
 
   <div class="callout finding" style="margin-top:20px;">
     <span class="label">Leitura da cadeia</span>
-    Sessão → Carrinho e Carrinho → Checkout não são o problema — estão dentro ou acima do que o mercado entrega. O funil sai da curva num único ponto, Checkout → Venda, e é o mais próximo da receita: cada checkout que chega ali já consumiu praticamente todo o custo de aquisição. É exatamente aí que entra a Teoria das Restrições, na próxima seção.
+    Sessão → Carrinho e Carrinho → Checkout não são o problema — estão dentro ou acima do que o mercado entrega. O funil sai da curva num único ponto, Checkout → Venda. É exatamente aí que entra a Teoria das Restrições, na próxima seção.
   </div>
 </section>
 
@@ -509,7 +509,7 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
     <table>
       <thead><tr><th>Não está funcionando</th><th class="num">Evidência</th><th>Ação de melhoria</th></tr></thead>
       <tbody>
-        <tr class="hl"><td>Checkout → Venda</td><td class="num">13,2% (6,52% sobre carrinho) — 2,6 a 5,4x abaixo do pior cenário nacional</td><td>Arsenal tático de fundo de funil (seção 07)</td></tr>
+        <tr class="hl"><td>Checkout → Venda</td><td class="num">13,2% vs. benchmark 25%–40% — 1,9x a 3x abaixo</td><td>Arsenal tático de fundo de funil (seção 07)</td></tr>
         <tr><td>Conversão geral (Sessão → Venda)</td><td class="num">0,42% — 3,9 a 6,9x abaixo do benchmark de categoria</td><td>Consequência direta do gargalo no checkout</td></tr>
         <tr><td>Rastreamento do GA4</td><td class="num">Duas measurement IDs disparando ao mesmo tempo</td><td>Auditoria de tags no GTM, remover a duplicada</td></tr>
         <tr><td>Responsividade ao toque (INP) no mobile</td><td class="num">232ms, só 28% das interações dentro do limite bom — dado de campo real</td><td>Investigar scripts pesados no clique de add-to-cart e nas transições do checkout (seção 05)</td></tr>
@@ -585,9 +585,9 @@ Tudo que está funcionando fica no topo e no meio do funil — tráfego, criativ
     <table>
       <thead><tr><th>Canal</th><th class="num">Taxa de recuperação</th><th class="num">Por quê</th><th>Fonte</th></tr></thead>
       <tbody>
-        <tr class="hl"><td>WhatsApp automatizado</td><td class="num">15%–35%</td><td class="num">Abertura acima de 90%, lida em minutos</td><td style="font-size:.78rem;">Dombei, 2025⁸</td></tr>
-        <tr><td>SMS</td><td class="num">8%–15%</td><td class="num">Direto, mas menos contexto que WhatsApp</td><td style="font-size:.78rem;">Dombei, 2025⁸</td></tr>
-        <tr><td>E-mail</td><td class="num">5%–10% (retorno de 21% s/ abertura)</td><td class="num">Abertura mais lenta, mas ainda vale por volume</td><td style="font-size:.78rem;">Dombei⁸ · Opinion Box, 2025⁶</td></tr>
+        <tr class="hl"><td>WhatsApp automatizado</td><td class="num">15%–35%</td><td class="num">Abertura acima de 90%, lida em minutos</td><td style="font-size:.78rem;">Dombei, 2025</td></tr>
+        <tr><td>SMS</td><td class="num">8%–15%</td><td class="num">Direto, mas menos contexto que WhatsApp</td><td style="font-size:.78rem;">Dombei, 2025</td></tr>
+        <tr><td>E-mail</td><td class="num">5%–10% (retorno de 21% s/ abertura)</td><td class="num">Abertura mais lenta, mas ainda vale por volume</td><td style="font-size:.78rem;">Dombei · Opinion Box, 2025</td></tr>
         <tr><td>Manual (hoje)</td><td class="num">sem benchmark — abaixo dos automatizados</td><td class="num">Sem cadência, sem gatilho, depende de alguém lembrar</td><td style="font-size:.78rem;">—</td></tr>
       </tbody>
     </table>
@@ -595,13 +595,13 @@ Tudo que está funcionando fica no topo e no meio do funil — tráfego, criativ
   <div class="tactic-grid">
     <div class="tactic-card">
       <div class="thead"><h4>E-mail automático de carrinho abandonado</h4></div>
-      <div class="desc">Sequência de 3 disparos (1h, 24h, 72h após abandono), com o produto do carrinho e, no último, um incentivo. Abertura média de 45% e 21% retornam para concluir a compra, segundo pesquisa nacional⁶.</div>
-      <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge mid">Impacto médio</span><span class="badge evidence">Benchmark BR⁶</span></div>
+      <div class="desc">Sequência de 3 disparos (1h, 24h, 72h após abandono), com o produto do carrinho e, no último, um incentivo. Abertura média de 45% e 21% retornam para concluir a compra, segundo pesquisa nacional (Opinion Box).</div>
+      <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge mid">Impacto médio</span><span class="badge evidence">Opinion Box, 2025</span></div>
     </div>
     <div class="tactic-card" style="border-color:var(--red);">
       <div class="thead"><h4>Régua de WhatsApp para carrinho abandonado</h4></div>
-      <div class="desc">O canal com melhor taxa de recuperação da categoria (15%–35%⁸) e o cliente já atende bem por WhatsApp — automatizar o primeiro contato no mesmo canal onde a prova social já mostra que funciona.</div>
-      <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge high">Impacto alto</span><span class="badge evidence">Benchmark BR⁷ ⁸</span></div>
+      <div class="desc">O canal com melhor taxa de recuperação da categoria (15%–35%, Dombei) e o cliente já atende bem por WhatsApp — automatizar o primeiro contato no mesmo canal onde a prova social já mostra que funciona.</div>
+      <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge high">Impacto alto</span><span class="badge evidence">Zenvia + Dombei, 2025</span></div>
     </div>
     <div class="tactic-card">
       <div class="thead"><h4>Rotear carrinhos abandonados para a IA de atendimento já existente</h4></div>
@@ -656,14 +656,14 @@ Tudo que está funcionando fica no topo e no meio do funil — tráfego, criativ
       <div class="desc">Checkout → Venda sobe de 13,2% para 40%, mesma verba, mesmo tráfego</div>
       <div class="row"><span>Vendas no mês</span><b class="tnum">≈ 47</b></div>
       <div class="row"><span>Faturamento</span><b class="tnum">≈ R$ 17.200</b></div>
-      <div class="row"><span>Checkout → Venda</span><b class="tnum">40% <small>· dentro do benchmark BR (17–35%)⁵</small></b></div>
+      <div class="row"><span>Checkout → Venda</span><b class="tnum">40% <small>· dentro do benchmark (25%–40%)</small></b></div>
     </div>
     <div class="scenario">
       <h4>Checkout + topo de funil</h4>
       <div class="desc">Soma a correção de checkout com Sessão → Carrinho subindo para ~9%</div>
       <div class="row"><span>Vendas no mês</span><b class="tnum">≈ 67</b></div>
       <div class="row"><span>Faturamento</span><b class="tnum">≈ R$ 24.250</b></div>
-      <div class="row"><span>Checkout → Venda</span><b class="tnum">40% <small>· dentro do benchmark BR</small></b></div>
+      <div class="row"><span>Checkout → Venda</span><b class="tnum">40% <small>· dentro do benchmark</small></b></div>
     </div>
   </div>
   <p style="font-size:.8rem;color:var(--ink-soft);">Projeções lineares a partir do ritmo diário de 01–23/09, propagando as taxas atuais nas demais etapas. Marcadas como estimativa — não substituem teste real em produção.</p>
@@ -698,8 +698,6 @@ Tudo que está funcionando fica no topo e no meio do funil — tráfego, criativ
   <div class="plan-group p3">
     <div class="ghead"><span class="pnum">3</span><h3 style="margin:0;">Pré-requisito — corrigir a instrumentação</h3></div>
     <div class="plan-list">
-      <div class="plan-item"><div><div class="t">Corrigir a fórmula de Ticket Médio e ROAS no painel</div><div class="d">Hoje desconectada do Faturamento real — quem olha o painel está tomando decisão com o número errado.</div></div><div class="impact">Bloqueante</div></div>
-      <div class="plan-item"><div><div class="t">Unificar a planilha de forecasting com o funil diário</div><div class="d">Elimina a divergência entre "Set = projeção" e "Set = realizado" que hoje existe na mesma aba.</div></div><div class="impact">Alta</div></div>
       <div class="plan-item"><div><div class="t">Investigar por que o Meta Ads fica com dias zerados recorrentes</div><div class="d">Ficou pausado de 01 a 09/09, de 23 a 31/07 e em 01–02/08 — sempre o canal mais eficiente dos dois (CTR 1,90% vs. 1,35% do Google, CPC R$ 1,49 vs. R$ 1,80) some por dias seguidos. Pode ser reprovação de anúncio, esgotamento de público ou corte manual de verba — cada causa tem correção diferente.</div></div><div class="impact">Alta</div></div>
       <div class="plan-item"><div><div class="t">Cruzar UTM no GA4 para saber sessão e venda por canal</div><div class="d">O investimento já está separado (Windsor.ai); falta a mesma visão para sessões, add to cart, checkout e venda, hoje só disponíveis em blend.</div></div><div class="impact">Média</div></div>
     </div>
