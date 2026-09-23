@@ -300,19 +300,19 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
 
 <section id="resumo">
   <div class="section-head"><span class="section-num">01</span><h2>Resumo executivo</h2></div>
-  <p class="lede">De cada 100 pessoas que chegam ao carrinho, só 6,5 terminam a compra. O mercado nacional, mesmo no cenário mais pessimista de abandono de carrinho, completa entre 17 e 35. Das cinco etapas do funil com benchmark de mercado disponível, essa é a única fora da curva — e é nela que está o principal problema do cliente.</p>
+  <p class="lede">Das cinco taxas do funil com benchmark de mercado disponível, três estão dentro ou acima do que o mercado entrega — CTR, Sessão → Carrinho e Carrinho → Checkout. Duas estão fora, e uma delas por uma margem enorme: Checkout → Venda roda a 13,2%, contra uma faixa saudável de 25%–40% no mercado. É aí, e só aí, que o funil trava.</p>
 
   <div class="grid-cards">
-    <div class="card"><div class="k">CTR</div><div class="v tnum">1,5<small>%</small></div><div class="pct"><span class="tag fact">dentro da faixa</span> 0,9%–2,0%</div></div>
-    <div class="card"><div class="k">Sessão → Carrinho</div><div class="v tnum">6,37<small>%</small></div><div class="pct"><span class="tag est">sem benchmark BR</span></div></div>
-    <div class="card"><div class="k">Carrinho → Checkout</div><div class="v tnum">49,5<small>%</small></div><div class="pct"><span class="tag fact">taxa saudável</span></div></div>
-    <div class="card bad"><div class="k">Checkout → Venda</div><div class="v tnum">13,2<small>%</small></div><div class="pct">6,52% sobre carrinho — 2,6 a 5,4x abaixo do benchmark BR (17%–35%)</div></div>
-    <div class="card bad"><div class="k">Conversão geral</div><div class="v tnum">0,42<small>%</small></div><div class="pct">3,9 a 6,9x abaixo do benchmark de categoria</div></div>
+    <div class="card"><div class="k">CTR</div><div class="v tnum">1,5<small>%</small></div><div class="pct"><span class="tag fact">dentro</span> benchmark 0,9%–2,0%</div></div>
+    <div class="card"><div class="k">Sessão → Carrinho</div><div class="v tnum">6,37<small>%</small></div><div class="pct"><span class="tag fact">dentro</span> benchmark 6%–8%</div></div>
+    <div class="card"><div class="k">Carrinho → Checkout</div><div class="v tnum">49,5<small>%</small></div><div class="pct"><span class="tag fact">acima</span> benchmark 30%–40%</div></div>
+    <div class="card bad"><div class="k">Checkout → Venda</div><div class="v tnum">13,2<small>%</small></div><div class="pct"><span class="tag" style="background:var(--red-soft);color:var(--red);">fora</span> benchmark 25%–40% — 1,9 a 3x abaixo</div></div>
+    <div class="card bad"><div class="k">Conversão geral</div><div class="v tnum">0,42<small>%</small></div><div class="pct"><span class="tag" style="background:var(--red-soft);color:var(--red);">fora</span> 3,9 a 6,9x abaixo do benchmark de categoria</div></div>
   </div>
 
   <div class="callout finding">
     <span class="label">Fato medido</span>
-    CTR está dentro da faixa de mercado. Carrinho → Checkout está saudável (49,5%). Sessão → Carrinho não tem benchmark brasileiro localizado para comparar. O único ponto fora da curva, e de longe o mais distante do que o mercado nacional entrega, é Checkout → Venda: de 91 checkouts iniciados em setembro, só 12 viraram compra. O problema não é o que o cliente compra quando decide comprar — é que a imensa maioria de quem chega ao checkout não termina a compra.
+    O topo e o meio do funil funcionam dentro do padrão de mercado: CTR, Sessão → Carrinho e Carrinho → Checkout não são o problema — nesta última, a Touch Of Synergy até converte acima da média. O funil só sai da curva em um ponto: Checkout → Venda. De 91 checkouts iniciados em setembro, só 12 viraram compra — muito abaixo até do pior cenário do mercado. O problema não é o que o cliente compra quando decide comprar — é que a imensa maioria de quem chega ao checkout não termina a compra.
   </div>
 
   <div class="callout finding">
@@ -331,7 +331,7 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
     <div class="card"><div class="k">Grupo setorial</div><div class="v" style="font-size:1rem;font-family:'IBM Plex Sans'">Comércio eletrônico e varejo</div></div>
     <div class="card"><div class="k">Tipo de demanda</div><div class="v" style="font-size:1rem;font-family:'IBM Plex Sans'">Geração — categoria precisa ser educada</div></div>
   </div>
-  <p>Grupo setorial comércio eletrônico: o funil não tem MQL nem SQL formais. A cadeia real é <b>Sessão → Adicionar ao carrinho → Checkout → Venda</b>, confirmada pelo formato do painel do próprio cliente. Não há qualificação comercial nesta operação — a decisão acontece inteiramente na sessão do site.</p>
+  <p>A cadeia real é <b>Sessão → Adicionar ao carrinho → Checkout → Venda</b>, confirmada pelo formato do painel do próprio cliente. Não há qualificação comercial nesta operação — a decisão acontece inteiramente na sessão do site.</p>
   <p>Percepção do cliente final sobre o problema: <em>"resultado baixo em vendas"</em>, sem apontar etapa específica. A análise abaixo qualifica exatamente onde essa percepção se confirma e onde ela erra o alvo.</p>
 </section>
 
@@ -342,22 +342,6 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
   <div class="callout risk">
     <span class="label">Fonte oficial desta análise — recalculada em 23/09/2026</span>
     Somando linha por linha a planilha diária para o período 01–23 de setembro: <b>Sessões 2.890 · Add to cart 184 · Checkout 91 · Vendas 12 · Faturamento R$ 4.337,40 · Investimento R$ 4.110,69</b>. Todos os números deste documento partem daqui — inclusive a linha do tempo junho-setembro abaixo. Duas ressalvas técnicas na própria planilha, já tratadas: as colunas "Semanal" e "Soma Setembro" são subtotais e foram excluídas da soma (senão contariam dobrado); os fins de semana de agosto, que num arquivo truncado usado numa rodada anterior pareciam sem dado, aparecem normais na planilha completa (ex: R$ 186 e R$ 162 de investimento em 22–23/08).
-  </div>
-
-  <div class="tbl-wrap">
-    <table>
-      <thead><tr><th>Achado</th><th>Classificação</th><th class="num">Tratamento adotado</th></tr></thead>
-      <tbody>
-        <tr><td>Sessões (2.890) maiores que Cliques (2.418) no período — conexão em 119,5%</td><td><span class="tag hyp">Relevante</span></td><td class="num">Indica tráfego direto/orgânico misturado ao funil pago; ver seção 04</td></tr>
-        <tr><td>Duas measurement IDs do GA4 disparando ao mesmo tempo no site (G-QMJBM3H9EM e G-SBWSJS3V2H), além do GTM-W43BFLRZ</td><td><span class="tag hyp">Relevante</span></td><td class="num">Candidato a explicar a anomalia acima; requer remoção da tag duplicada no GTM</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p style="font-size:.8rem;color:var(--ink-soft);">Ainda é um funil em blend único: a planilha não separa sessão/venda por canal (Meta vs. Google) — investimento por canal já foi obtido à parte, ver achado abaixo.</p>
-
-  <div class="callout risk">
-    <span class="label">Lacuna resolvida — puxado direto das contas de anúncio via Windsor.ai em 23/09/2026</span>
-    O funil segue tratado como sistema único porque não dá pra saber quantas sessões/vendas vieram de cada canal sem UTM cruzado no GA4 — mas o investimento por canal já saiu do blend. Setembro (01–23): <b>Google Ads investiu R$ 2.857 (67% do total)</b>, Meta Ads investiu <b>R$ 1.397 (33%)</b>. E o achado mais importante: <b>o Meta Ads ficou zerado de 01 a 09/09</b>, os primeiros nove dias do mês — o Google carregou o funil sozinho nesse intervalo. Quando ativo, o Meta é o canal mais eficiente dos dois: CTR de 1,90% contra 1,35% do Google, e CPC de R$ 1,49 contra R$ 1,80. A pausa não é um evento isolado: o mesmo padrão de dias zerados aparece em julho (23 a 31/07, nove dias) e no início de agosto (01–02/08), desde pelo menos junho. Soma dos dois canais no período (R$ 4.254) fica a 3,4% do investimento total da planilha diária (R$ 4.111) — as duas fontes se confirmam.
   </div>
 
   <h3 style="margin-top:26px;">Linha do tempo — o próprio histórico do cliente, junho a setembro</h3>
@@ -375,7 +359,7 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
   </div>
   <div class="callout finding" style="margin-top:16px;">
     <span class="label">Achado — a piora é recente, não estrutural</span>
-    Em junho, julho e agosto o ROAS oscilou entre 1,95x e 2,43x e o CAC entre R$ 126 e R$ 207 — uma operação estável e lucrativa. Em setembro o ROAS caiu para 1,06x e o CAC quase triplicou para R$ 343, e isso <b>não é efeito de mês incompleto</b>: normalizando por dia, setembro investiu R$ 178,72/dia contra uma média de R$ 133,89/dia em junho-agosto — 33% a mais de verba por dia — e mesmo assim vendeu 0,52 pedido/dia contra 0,71–1,06 pedido/dia no trimestre anterior. Mais investimento diário e menos venda diária aponta para dentro do funil, não para falta de verba, e coincide no calendário com os 9 dias de Meta Ads zerado no início do mês (achado acima) e com a queda em Checkout → Venda medida na seção 04.
+    Em junho, julho e agosto o ROAS oscilou entre 1,95x e 2,43x e o CAC entre R$ 126 e R$ 207 — uma operação estável e lucrativa. Em setembro o ROAS caiu para 1,06x e o CAC quase triplicou para R$ 343, e isso <b>não é efeito de mês incompleto</b>: normalizando por dia, setembro investiu R$ 178,72/dia contra uma média de R$ 133,89/dia em junho-agosto — 33% a mais de verba por dia — e mesmo assim vendeu 0,52 pedido/dia contra 0,71–1,06 pedido/dia no trimestre anterior. Mais investimento diário e menos venda diária aponta para dentro do funil, não para falta de verba — consistente com a queda em Checkout → Venda medida na seção 04.
   </div>
 </section>
 
@@ -392,40 +376,40 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
   </div>
   <p style="font-size:.78rem;color:var(--ink-soft);margin-top:10px;">Essas quatro métricas ficam fora da cadeia sequencial abaixo — não dá pra "acumular %" de Alcance até Venda porque a mesma pessoa é impactada em média 4,1 vezes antes de clicar uma única vez. Benchmark de CTR (0,9%–2,0%): WordStream/WebFX, Meta Marketing Benchmarks 2026⁴ — fonte completa na seção 12.</p>
 
-  <h3 style="margin-top:30px;">A cadeia sequencial — de sessão a venda</h3>
-  <div class="callout risk" style="margin-bottom:18px;">
-    <span class="label">Antes de ler a cadeia — uma inconsistência de medição</span>
-    Sessões (2.890) veio <b>19,5% maior</b> que Cliques (2.418) no mesmo período — sessão não deveria superar clique pago. Candidato mais provável: as duas measurement IDs do GA4 disparando juntas no site (achado da seção 03), somando tráfego duplicado ou direto/orgânico ao funil pago. Por isso a cadeia abaixo começa em <b>Sessões</b>, que é a métrica mais confiável para medir o que acontece dentro do site — e não em Cliques.
-  </div>
+  <h3 style="margin-top:30px;">A cadeia sequencial — dois funis, só taxa de conversão</h3>
+  <p style="font-size:.85rem;color:var(--ink-soft);">Cada etapa comparada isoladamente com o benchmark de mercado equivalente — não é a % acumulada de Sessão até Venda, é a taxa própria de cada passagem.</p>
 
+  <div class="funnel-label" style="font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); margin-top:22px;">Touch Of Synergy</div>
   <div class="funnel">
-    <div class="fstep"><div class="name">Sessões</div><div class="track"><div class="fill" style="width:100%"></div></div><div class="val"><b class="tnum">2.890</b><br><small>100%</small></div></div>
-    <div class="floss">↓ conversão de <b>6,37%</b> · perda de <b>2.706</b> sessões · sem benchmark BR específico localizado</div>
-    <div class="fstep"><div class="name">Add to cart</div><div class="track"><div class="fill" style="width:24%"></div></div><div class="val"><b class="tnum">184</b><br><small>6,37%</small></div></div>
-    <div class="floss">↓ conversão de <b>49,5%</b> · perda de <b>93</b> carrinhos</div>
-    <div class="fstep"><div class="name">Checkout</div><div class="track"><div class="fill" style="width:14%"></div></div><div class="val"><b class="tnum">91</b><br><small>3,15%</small></div></div>
-    <div class="floss">↓ conversão de <b>13,2%</b> · perda de <b>79</b> checkouts — maior distância do benchmark</div>
-    <div class="fstep"><div class="name">Venda</div><div class="track"><div class="fill crit" style="width:6%"></div></div><div class="val"><b class="tnum">12</b><br><small>0,42%</small></div></div>
+    <div class="fstep"><div class="name">Sessão → Carrinho</div><div class="track"><div class="fill" style="width:6.37%"></div></div><div class="val"><b class="tnum">6,37%</b><br><small class="tag fact" style="display:inline-block;">dentro</small></div></div>
+    <div class="fstep"><div class="name">Carrinho → Checkout</div><div class="track"><div class="fill" style="width:49.5%"></div></div><div class="val"><b class="tnum">49,5%</b><br><small class="tag fact" style="display:inline-block;">acima</small></div></div>
+    <div class="fstep"><div class="name">Checkout → Venda</div><div class="track"><div class="fill crit" style="width:13.2%"></div></div><div class="val"><b class="tnum">13,2%</b><br><small class="tag" style="display:inline-block;background:var(--red-soft);color:var(--red);">fora</small></div></div>
   </div>
-  <p style="font-size:.72rem;color:var(--ink-soft);">Barras em escala visual não-linear (para as duas últimas etapas continuarem visíveis) — o número e o percentual ao lado de cada barra são os reais, é neles que a leitura deve se apoiar. % sempre acumulado a partir de Sessões.</p>
 
-  <h3 style="margin-top:26px;">Cada etapa contra o benchmark de mercado disponível</h3>
-  <div class="tbl-wrap">
+  <div class="funnel-label" style="font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); margin-top:26px;">Benchmark de mercado</div>
+  <div class="funnel">
+    <div class="fstep"><div class="name">Sessão → Carrinho</div><div class="track"><div class="fill" style="width:7%;background:var(--ink-soft);"></div></div><div class="val"><b class="tnum">6%–8%</b></div></div>
+    <div class="fstep"><div class="name">Carrinho → Checkout</div><div class="track"><div class="fill" style="width:35%;background:var(--ink-soft);"></div></div><div class="val"><b class="tnum">30%–40%</b></div></div>
+    <div class="fstep"><div class="name">Checkout → Venda</div><div class="track"><div class="fill" style="width:32%;background:var(--ink-soft);"></div></div><div class="val"><b class="tnum">25%–40%</b></div></div>
+  </div>
+  <p style="font-size:.72rem;color:var(--ink-soft);margin-top:10px;">Largura das barras = a própria taxa (0–100%), mesma escala nos dois funis — comparável lado a lado. Fontes: Sessão → Carrinho, beleza e cuidados pessoais, Dynamic Yield by Mastercard via Clickpost.ai 2026. Carrinho → Checkout e Checkout → Venda (tráfego mobile), Lebesgue/Mida Funnel Benchmarks 2026 via AdSights. Lista completa com link na seção 12.</p>
+
+  <div class="tbl-wrap" style="margin-top:20px;">
     <table>
-      <thead><tr><th>Etapa</th><th class="num">Touch Of Synergy</th><th class="num">Benchmark citado</th><th class="num">Distância</th><th>Fonte</th></tr></thead>
+      <thead><tr><th>Etapa</th><th class="num">Touch Of Synergy</th><th class="num">Benchmark</th><th class="num">Leitura</th></tr></thead>
       <tbody>
-        <tr><td>CTR (Impressões → Clique)</td><td class="num">1,5%</td><td class="num">0,9%–2,0%</td><td class="num"><span class="tag fact">dentro da faixa</span></td><td style="font-size:.78rem;">WordStream/WebFX, Meta Marketing Benchmarks 2026⁴</td></tr>
-        <tr><td>Sessão → Add to cart</td><td class="num">6,37%</td><td class="num">sem fonte BR localizada</td><td class="num"><span class="tag est">não comparável</span></td><td style="font-size:.78rem;">—</td></tr>
-        <tr class="hl"><td>Add to cart → Venda (abandono de carrinho)</td><td class="num">6,52%</td><td class="num">17%–35%</td><td class="num">2,6x a 5,4x abaixo</td><td style="font-size:.78rem;">Ecombase + Revista Varejo Brasil (Baymard Institute)⁵</td></tr>
-        <tr><td>Conversão geral (Sessão → Venda)</td><td class="num">0,42%</td><td class="num">2,9% categoria · 1,65% piso geral</td><td class="num">3,9x a 6,9x abaixo</td><td style="font-size:.78rem;">Neotrust/Ebit Nielsen, via Prax Analytics e Babi Tonhela¹</td></tr>
+        <tr><td>Sessão → Carrinho</td><td class="num">6,37%</td><td class="num">6%–8%</td><td class="num"><span class="tag fact">dentro</span></td></tr>
+        <tr><td>Carrinho → Checkout</td><td class="num">49,5%</td><td class="num">30%–40%</td><td class="num"><span class="tag fact">acima</span></td></tr>
+        <tr class="hl"><td>Checkout → Venda</td><td class="num">13,2%</td><td class="num">25%–40%</td><td class="num">1,9x a 3x abaixo</td></tr>
+        <tr><td>Conversão geral (Sessão → Venda)</td><td class="num">0,42%</td><td class="num">2,9% categoria · 1,65% piso geral</td><td class="num">3,9x a 6,9x abaixo</td></tr>
       </tbody>
     </table>
   </div>
-  <p style="font-size:.78rem;color:var(--ink-soft);">O abandono de carrinho médio no e-commerce brasileiro fica entre 65% e 83,1% conforme a fonte — ou seja, uma operação típica completa entre 17% e 35% dos carrinhos iniciados. A Touch Of Synergy completa 6,52%: mesmo no cenário mais pessimista do mercado nacional, o resultado atual está de 2,6 a 5,4 vezes pior. Esse é o maior gap percentual de todo o funil, com fonte nomeada na tabela acima e link completo na seção 12.</p>
+  <p style="font-size:.78rem;color:var(--ink-soft);">Segunda fonte independente confirma o mesmo gargalo por outro ângulo: olhando direto de Carrinho a Venda (sem separar por Checkout), a Touch Of Synergy completa 6,52% das compras iniciadas no carrinho, contra uma faixa de 17%–35% no e-commerce brasileiro (Ecombase + Revista Varejo Brasil, citando Baymard Institute) — de 2,6 a 5,4 vezes abaixo. Duas fontes, dois recortes de etapa, a mesma conclusão.</p>
 
   <div class="callout finding" style="margin-top:20px;">
     <span class="label">Leitura da cadeia</span>
-    A maior perda em <b>volume absoluto</b> acontece entre Sessão e Carrinho (2.706 sessões). Mas a maior perda em <b>distância do benchmark citado</b> acontece entre Carrinho e Venda: mesmo comparado ao pior cenário nacional de abandono de carrinho, a Touch Of Synergy está fora da curva. Essas duas leituras não apontam para o mesmo lugar — e é exatamente aí que entra a Teoria das Restrições, na próxima seção.
+    Sessão → Carrinho e Carrinho → Checkout não são o problema — estão dentro ou acima do que o mercado entrega. O funil sai da curva num único ponto, Checkout → Venda, e é o mais próximo da receita: cada checkout que chega ali já consumiu praticamente todo o custo de aquisição. É exatamente aí que entra a Teoria das Restrições, na próxima seção.
   </div>
 </section>
 
@@ -439,7 +423,7 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
       <tbody>
         <tr><td>Volume perdido (unidades)</td><td class="num">2.706</td><td class="num">79</td></tr>
         <tr><td>Custo do volume perdido</td><td class="num">R$ 3.849</td><td class="num">R$ 3.569</td></tr>
-        <tr><td>Distância do benchmark</td><td class="num">6,37% · sem fonte BR</td><td class="num">Add to cart→Venda 6,52% vs. 17–35% BR⁵</td></tr>
+        <tr><td>Distância do benchmark</td><td class="num">6,37% vs. 6%–8% — dentro</td><td class="num">13,2% vs. 25%–40% — 1,9x a 3x abaixo</td></tr>
         <tr class="hl"><td>Ganho projetado se corrigida (mesmo período, mesma verba)</td><td class="num">+5 vendas · +R$ 1.794</td><td class="num">+24 vendas · +R$ 8.819</td></tr>
         <tr><td>Efeito cascata</td><td class="num">Multiplica pelas 2 etapas seguintes</td><td class="num">Direto em receita, sem perdas posteriores</td></tr>
       </tbody>
@@ -453,11 +437,10 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
 
   <h3 style="margin-top:24px;">Descarte da restrição falsa</h3>
   <div class="grid-cards" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
-    <div class="card"><div class="k">Etapa rastreada corretamente?</div><div class="v" style="font-size:.95rem;font-family:'IBM Plex Sans';">Sim — checkout e venda vêm do mesmo sistema de loja, sem a inconsistência vista no topo do funil</div></div>
+    <div class="card"><div class="k">Etapa rastreada corretamente?</div><div class="v" style="font-size:.95rem;font-family:'IBM Plex Sans';">Sim — checkout e venda vêm do mesmo sistema de loja</div></div>
     <div class="card"><div class="k">Ciclo de vendas maior que o período?</div><div class="v" style="font-size:.95rem;font-family:'IBM Plex Sans';">Não — compra por impulso, ciclo é a própria sessão</div></div>
     <div class="card"><div class="k">Restrição de capacidade?</div><div class="v" style="font-size:.95rem;font-family:'IBM Plex Sans';">Não se aplica — não há atendimento comercial neste funil</div></div>
   </div>
-  <p>O topo do funil (Cliques → Sessões acima de 100%) tem um problema de medição real, registrado na auditoria, mas ele não invalida o achado do checkout: são etapas medidas em sistemas diferentes e a queda no checkout é consistente em todas as semanas de setembro.</p>
 
   <div class="callout risk">
     <span class="label">Deixou de ser hipótese — navegado ao vivo em 23/09/2026</span>
@@ -466,7 +449,7 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
       <li style="margin-bottom:6px;"><b>Choque de frete confirmado.</b> Um óleo de R$ 152 vira R$ 176,90 no carrinho — taxa fixa de R$ 24,90, porque o grátis só vale acima de R$ 300. O carrinho ainda mostra a barra "faltam R$ 148 para frete grátis", que é honesta mas também é o momento exato em que o cliente sente que pagou "frete demais" por não ter chegado no grátis.</li>
       <li style="margin-bottom:6px;"><b>Checkout de 4 etapas</b> (Meus Dados → Endereço → Entrega → Pagar), com CPF obrigatório logo na primeira tela. Pix, cartão parcelado e boleto <i>existem</i> — mas só aparecem na etapa 4, nunca antes. Concorrentes como By Samia e Phytoterápica mostram Pix e parcelamento desde a página de produto.</li>
       <li style="margin-bottom:6px;"><b>Bug de UX real, com print:</b> o banner de cookies ("Nós nos preocupamos com a sua privacidade") abre sobreposto ao formulário — no carrinho, ele cobre o preço e a quantidade; no checkout, cobre exatamente o campo de CPF. Quem não souber fechar o banner primeiro não consegue preencher o formulário.</li>
-      <li><b>A página responde devagar ao toque, não devagar ao carregar.</b> Dado de campo do Google (PageSpeed Insights, 28 dias de usuários reais): o LCP mobile está dentro do limite bom (2,4s), mas o INP (tempo entre o toque e a tela reagir) está em 232ms, com só 28% das interações dentro do limite bom de 200ms. É exatamente o tipo de trava que aparece ao clicar "Adicionar ao carrinho" ou "Continuar" entre as etapas do checkout — um candidato direto a investigar é o script do GA4 duplicado (seção 03) rodando em cada clique.</li>
+      <li><b>A página responde devagar ao toque, não devagar ao carregar.</b> Dado de campo do Google (PageSpeed Insights, 28 dias de usuários reais): o LCP mobile está dentro do limite bom (2,4s), mas o INP (tempo entre o toque e a tela reagir) está em 232ms, com só 28% das interações dentro do limite bom de 200ms. É exatamente o tipo de trava que aparece ao clicar "Adicionar ao carrinho" ou "Continuar" entre as etapas do checkout — um candidato direto a investigar é script pesado rodando em cada clique.</li>
     </ul>
   </div>
 </section>
@@ -493,7 +476,7 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
       <tbody>
         <tr class="hl"><td>Checkout → Venda</td><td class="num">13,2% (6,52% sobre carrinho) — 2,6 a 5,4x abaixo do pior cenário nacional</td><td>Arsenal tático de fundo de funil (seção 07)</td></tr>
         <tr><td>Conversão geral (Sessão → Venda)</td><td class="num">0,42% — 3,9 a 6,9x abaixo do benchmark de categoria</td><td>Consequência direta do gargalo no checkout</td></tr>
-        <tr><td>Rastreamento do GA4</td><td class="num">Duas measurement IDs disparando ao mesmo tempo</td><td>Auditoria de tags no GTM, remover a duplicada (seção 03)</td></tr>
+        <tr><td>Rastreamento do GA4</td><td class="num">Duas measurement IDs disparando ao mesmo tempo</td><td>Auditoria de tags no GTM, remover a duplicada</td></tr>
         <tr><td>Responsividade ao toque (INP) no mobile</td><td class="num">232ms, só 28% das interações dentro do limite bom — dado de campo real</td><td>Investigar scripts pesados no clique de add-to-cart e nas transições do checkout (seção 05)</td></tr>
         <tr><td>Sinalizadores de confiança no checkout</td><td class="num">Sem Pix com desconto exposto, sem parcelamento exposto, sem contador de avaliações — concorrentes maduros já têm</td><td>Replicar os 5 itens do gap competitivo (seção 10)</td></tr>
       </tbody>
@@ -534,7 +517,7 @@ Tudo que está funcionando fica no topo e no meio do funil — tráfego, criativ
     </div>
     <div class="tactic-card">
       <div class="thead"><h4>Remover a measurement ID duplicada do GA4</h4></div>
-      <div class="desc">Duas tags GA4 disparando ao mesmo tempo (seção 03). Sem isso corrigido, qualquer decisão futura baseada no GA4 herda o mesmo ruído.</div>
+      <div class="desc">Duas tags GA4 disparando ao mesmo tempo (G-QMJBM3H9EM e G-SBWSJS3V2H, além do GTM-W43BFLRZ), confirmado por captura de rede ao vivo. Sem isso corrigido, qualquer decisão futura baseada no GA4 herda o mesmo ruído.</div>
       <div class="meta"><span class="badge low">Esforço baixo</span><span class="badge mid">Impacto médio</span><span class="badge evidence">Captura de rede</span></div>
     </div>
     <div class="tactic-card">
@@ -548,7 +531,7 @@ Tudo que está funcionando fica no topo e no meio do funil — tráfego, criativ
   <div class="tactic-grid">
     <div class="tactic-card" style="border-color:var(--red);">
       <div class="thead"><h4>Investigar o que trava ao clicar em "Adicionar" e "Continuar"</h4></div>
-      <div class="desc">INP de 232ms no mobile (dado de campo real, 28 dias) — só 28% das interações respondem dentro do limite bom. Candidatos prováveis: script do GA4 duplicado (seção 03) rodando em cada clique, chat/pixel pesado, ou validação de formulário no checkout. Perfilar com o DevTools em "Performance" no exato momento do clique.</div>
+      <div class="desc">INP de 232ms no mobile (dado de campo real, 28 dias) — só 28% das interações respondem dentro do limite bom. Candidatos prováveis: script do GA4 duplicado rodando em cada clique, chat/pixel pesado, ou validação de formulário no checkout. Perfilar com o DevTools em "Performance" no exato momento do clique.</div>
       <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge high">Impacto alto</span><span class="badge evidence">PageSpeed Insights, campo real</span></div>
     </div>
     <div class="tactic-card">
@@ -829,7 +812,8 @@ Tudo que está funcionando fica no topo e no meio do funil — tráfego, criativ
   <div class="fnotes">
     <ol>
       <li>Taxas de conversão por categoria e média geral do e-commerce brasileiro: dados consolidados Neotrust/Ebit Nielsen, compilados em <a href="https://www.prax.ai/blog/benchmark-taxa-de-conversao" target="_blank" rel="noopener">Prax Analytics, Relatório de Benchmark 2025</a> e <a href="https://babitonhela.com/blog/taxa-conversao-media-ecommerce-brasileiro-dados/" target="_blank" rel="noopener">Babi Tonhela, Taxa de Conversão Média no E-commerce Brasileiro</a>.</li>
-      <li>Sessão → Add to cart: sem fonte brasileira específica localizada nesta pesquisa — etapa reportada sem comparação, não com um número inventado.</li>
+      <li>Sessão → Carrinho (taxa de add-to-cart, 6%–8%, categoria beleza e cuidados pessoais): <a href="https://www.clickpost.ai/blog/add-to-cart-rate-in-ecommerce" target="_blank" rel="noopener">Clickpost.ai, citando Dynamic Yield by Mastercard, 2026</a>. Sem fonte brasileira específica localizada — usado benchmark global de categoria, mais genérico que os demais.</li>
+      <li>Carrinho → Checkout (30%–40%) e Checkout → Venda em tráfego mobile (25%–40%): <a href="https://www.adsights.ai/resources/glossary/metrics/initiate-checkout-rate" target="_blank" rel="noopener">AdSights, citando Lebesgue/Mida Funnel Benchmarks 2026</a>. Também sem fonte brasileira específica — benchmark internacional.</li>
       <li>Alcance: medido diretamente na planilha diária do cliente (39.395 no período 01–23/09/2026) — nas rodadas anteriores desta análise era estimado por uma razão Alcance/Impressões; a planilha completa trouxe o dado real.</li>
       <li>CTR médio de e-commerce (0,9%–2,0%): <a href="https://www.webfx.com/blog/social-media/meta-benchmarks/" target="_blank" rel="noopener">WordStream, via WebFX, Meta Marketing Benchmarks 2026</a>.</li>
       <li>Taxa de abandono de carrinho no Brasil (65%–83,1%, logo completion de 17%–35%): <a href="https://ecombase.com.br/blog/por-que-8-em-cada-10-compradores-abandonam-o-carrinho-no-e-commerce-saiba-como-reduzir" target="_blank" rel="noopener">Ecombase, dados consolidados de mercado BR</a> e <a href="https://www.revistavarejobrasil.com.br/abandono-de-carrinho-taxa-chega-a-82-veja-as-principais-causas-e-como-evitar/" target="_blank" rel="noopener">Revista Varejo Brasil, citando Baymard Institute, 2025</a>.</li>
