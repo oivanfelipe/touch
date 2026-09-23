@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Diagnóstico Touch Of Synergy</title>
+<meta name="description" content="Auditoria de funil, benchmark de mercado e plano de ação pela metodologia ARGUS — V4 Company Carvalho &amp; Co.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f6f1;
+  --bg-raised:#ffffff;
+  --ink:#161d18;
+  --ink-soft:#4b564e;
+  --line:#dadfd6;
+  --line-soft:#e8ebe3;
+  --accent:#2f5d4f;
+  --accent-soft:#e3ece7;
+  --accent-strong:#1d3f35;
+  --amber:#a8632a;
+  --amber-soft:#f4e6d6;
+  --red:#a13a2d;
+  --red-soft:#f5e0da;
+  --good:#2f6d4a;
+  --good-soft:#e2eee2;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#12160f;
+    --bg-raised:#1a2018;
+    --ink:#eef1ea;
+    --ink-soft:#aeb8a9;
+    --line:#324034;
+    --line-soft:#293227;
+    --accent:#7dc0a4;
+    --accent-soft:#233a2f;
+    --accent-strong:#a9dcc4;
+    --amber:#e3a465;
+    --amber-soft:#3a2e1e;
+    --red:#e08d7c;
+    --red-soft:#3c231d;
+    --good:#8cd1a6;
+    --good-soft:#1f3324;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12160f;
+  --bg-raised:#1a2018;
+  --ink:#eef1ea;
+  --ink-soft:#aeb8a9;
+  --line:#324034;
+  --line-soft:#293227;
+  --accent:#7dc0a4;
+  --accent-soft:#233a2f;
+  --accent-strong:#a9dcc4;
+  --amber:#e3a465;
+  --amber-soft:#3a2e1e;
+  --red:#e08d7c;
+  --red-soft:#3c231d;
+  --good:#8cd1a6;
+  --good-soft:#1f3324;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  font-size:17px;
+  line-height:1.65;
+  padding-inline:24px;
+}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;text-wrap:balance;margin:0;}
+.mono, .tnum{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums;}
+.wrap{max-width:1040px;margin:0 auto;}
+a{color:var(--accent-strong);}
+
+/* ---- top bar ---- */
+.topbar{
+  position:sticky; top:env(safe-area-inset-top,0px);
+  z-index:20; background:color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+  margin-inline:-24px; padding-inline:24px;
+}
+.topbar-inner{max-width:1040px;margin:0 auto;display:flex;align-items:center;gap:22px;padding-block:16px;overflow-x:auto;}
+.topbar-brand{font-family:"Fraunces",serif;font-weight:600;font-size:1rem;white-space:nowrap;color:var(--accent-strong);}
+.topnav{display:flex;gap:6px;flex-wrap:nowrap;}
+.topnav a{
+  white-space:nowrap; font-size:.82rem; color:var(--ink-soft); text-decoration:none;
+  padding:8px 14px; border-radius:999px;
+}
+.topnav a:hover{background:var(--accent-soft); color:var(--accent-strong);}
+
+/* ---- hero ---- */
+.hero{padding-block:72px 48px; border-bottom:1px solid var(--line);}
+.eyebrow{
+  font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent);
+  font-weight:600; margin-bottom:22px; display:flex; gap:12px; align-items:center; flex-wrap:wrap;
+}
+.eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--line);}
+.hero h1{font-size:clamp(2rem,4.4vw,2.9rem); font-weight:600; line-height:1.18; max-width:16ch;}
+.hero .sub{margin-top:24px; max-width:58ch; color:var(--ink-soft); font-size:1.1rem; line-height:1.6;}
+.hero-meta{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:24px 32px; margin-top:40px; padding-top:32px; border-top:1px solid var(--line-soft);}
+.hero-meta div{font-size:.92rem;}
+.hero-meta .k{color:var(--ink-soft); display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:.07em; margin-bottom:6px;}
+
+/* ---- generic section ---- */
+section{padding-block:64px; border-bottom:1px solid var(--line-soft);}
+section:last-of-type{border-bottom:none;}
+.section-head{display:flex; align-items:baseline; gap:14px; margin-bottom:28px;}
+.section-num{font-family:"IBM Plex Mono",monospace; color:var(--accent); font-size:.85rem;}
+h2{font-size:1.65rem; font-weight:600;}
+h3{font-size:1.15rem; font-weight:600; margin-bottom:14px;}
+p{margin:0 0 16px;}
+p:last-child{margin-bottom:0;}
+.lede{font-size:1.1rem; color:var(--ink-soft); max-width:64ch; line-height:1.65; margin-bottom:8px;}
+
+/* ---- callouts ---- */
+.callout{border-radius:14px; padding:24px 26px; margin-block:24px; border:1px solid var(--line); line-height:1.6;}
+.callout.finding{background:var(--accent-soft); border-color:color-mix(in srgb, var(--accent) 35%, var(--line));}
+.callout.risk{background:var(--red-soft); border-color:color-mix(in srgb, var(--red) 35%, var(--line));}
+.callout.gap{background:var(--amber-soft); border-color:color-mix(in srgb, var(--amber) 35%, var(--line));}
+.callout .label{font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; font-weight:600; margin-bottom:10px; display:block;}
+.callout.finding .label{color:var(--accent-strong);}
+.callout.risk .label{color:var(--red);}
+.callout.gap .label{color:var(--amber);}
+.callout ul{margin:14px 0 0; padding-left:22px;}
+.callout li{margin-bottom:10px;}
+.callout li:last-child{margin-bottom:0;}
+
+/* ---- scorecards ---- */
+.grid-cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:14px; margin-block:28px;}
+.card{background:var(--bg-raised); padding:22px 20px; border:1px solid var(--line); border-radius:12px;}
+.card .k{font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-soft); margin-bottom:12px;}
+.card .v{font-family:"IBM Plex Mono",monospace; font-size:1.7rem; font-weight:600; font-variant-numeric:tabular-nums;}
+.card .v small{font-size:.9rem;font-weight:500;color:var(--ink-soft);}
+.card .bar{height:5px; border-radius:3px; background:var(--line-soft); margin-top:14px; overflow:hidden;}
+.card .bar i{display:block; height:100%; background:var(--accent);}
+.card.bad .bar i{background:var(--red);}
+.card.warn .bar i{background:var(--amber);}
+.card .pct{font-size:.76rem; color:var(--ink-soft); margin-top:8px;}
+
+/* ---- tables ---- */
+.tbl-wrap{overflow-x:auto; margin-block:24px; border:1px solid var(--line); border-radius:12px;}
+table{border-collapse:collapse; width:100%; font-size:.92rem; min-width:560px;}
+th,td{padding:14px 18px; text-align:right; border-bottom:1px solid var(--line-soft); white-space:nowrap;}
+th:first-child,td:first-child{text-align:left; white-space:normal;}
+thead th{background:var(--accent-soft); color:var(--accent-strong); font-weight:600; font-size:.74rem; text-transform:uppercase; letter-spacing:.05em;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr.hl td{background:var(--red-soft); font-weight:600;}
+td.num, th.num{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums;}
+.tag{display:inline-block; font-size:.7rem; padding:3px 10px; border-radius:999px; font-weight:600;}
+.tag.fact{background:var(--good-soft); color:var(--good);}
+.tag.hyp{background:var(--amber-soft); color:var(--amber);}
+.tag.est{background:var(--accent-soft); color:var(--accent-strong);}
+
+/* ---- funnel viz ---- */
+.funnel{display:flex; flex-direction:column; gap:10px; margin-block:28px;}
+.fstep{display:grid; grid-template-columns:130px 1fr auto; align-items:center; gap:18px;}
+.fstep .name{font-size:.85rem; color:var(--ink-soft);}
+.fstep .track{background:var(--line-soft); border-radius:8px; height:34px; position:relative; overflow:hidden;}
+.fstep .fill{position:absolute; inset:0; background:var(--accent); border-radius:8px; display:flex; align-items:center; padding-inline:12px; color:#fff; font-family:"IBM Plex Mono",monospace; font-size:.8rem; font-weight:600;}
+.fstep .fill.crit{background:var(--red);}
+.fstep .val{font-family:"IBM Plex Mono",monospace; font-size:.84rem; text-align:right; min-width:64px;}
+.floss{font-size:.76rem; color:var(--ink-soft); padding-left:148px; margin-top:-4px; margin-bottom:6px; line-height:1.5;}
+.floss b{color:var(--red);}
+
+/* ---- benchmark bars ---- */
+.bench-row{display:grid; grid-template-columns:170px 1fr; gap:16px; align-items:center; margin-block:14px;}
+.bench-row .lbl{font-size:.85rem;}
+.bench-track{position:relative; height:28px; background:var(--line-soft); border-radius:8px;}
+.bench-mark{position:absolute; top:-4px; bottom:-4px; width:2px; background:var(--ink);}
+.bench-mark .mlabel{position:absolute; top:-20px; left:50%; transform:translateX(-50%); font-size:.68rem; color:var(--ink-soft); white-space:nowrap;}
+.bench-fill{position:absolute; inset:0; border-radius:8px; background:var(--red);}
+
+/* ---- scenario cards ---- */
+.scenarios{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px; margin-block:28px;}
+.scenario{border:1px solid var(--line); border-radius:14px; padding:24px; background:var(--bg-raised);}
+.scenario h4{font-family:"Fraunces",serif; font-size:1.05rem; font-weight:600; margin:0 0 8px;}
+.scenario .desc{font-size:.84rem; color:var(--ink-soft); margin-bottom:18px; line-height:1.5;}
+.scenario .row{display:flex; justify-content:space-between; font-size:.86rem; padding-block:9px; border-top:1px solid var(--line-soft);}
+.scenario .row b{font-family:"IBM Plex Mono",monospace;}
+.scenario.hero-scenario{border-color:var(--accent); box-shadow:0 0 0 1px var(--accent);}
+.scenario.hero-scenario h4{color:var(--accent-strong);}
+
+/* ---- plan ---- */
+.plan-group{margin-block:32px;}
+.plan-group .ghead{display:flex; align-items:center; gap:12px; margin-bottom:18px;}
+.pnum{width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:"IBM Plex Mono",monospace;font-size:.85rem;font-weight:600;flex-shrink:0;}
+.plan-group.p2 .pnum{background:var(--amber);}
+.plan-group.p3 .pnum{background:var(--ink-soft);}
+.plan-list{display:flex; flex-direction:column; gap:10px;}
+.plan-item{background:var(--bg-raised); border:1px solid var(--line); border-radius:12px; padding:18px 20px; display:grid; grid-template-columns:1fr auto; gap:12px 20px; align-items:start;}
+.plan-item .t{font-weight:600; font-size:.96rem;}
+.plan-item .d{font-size:.85rem; color:var(--ink-soft); margin-top:6px; line-height:1.55;}
+.plan-item .impact{font-size:.7rem; text-transform:uppercase; letter-spacing:.05em; font-weight:600; color:var(--accent); white-space:nowrap; align-self:center;}
+
+/* ---- competitor grid ---- */
+.comp-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-block:24px;}
+.comp{border:1px solid var(--line); border-radius:12px; padding:18px 20px; background:var(--bg-raised);}
+.comp .name{font-weight:600; font-size:.95rem; margin-bottom:6px;}
+.comp .pos{font-size:.8rem; color:var(--ink-soft); line-height:1.5;}
+
+/* ---- 4P competitor profiles ---- */
+.p4-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:20px; margin-block:28px;}
+.p4-card{border:1px solid var(--line); border-radius:14px; background:var(--bg-raised); overflow:hidden;}
+.p4-card .p4-head{padding:18px 20px; border-bottom:1px solid var(--line-soft); background:var(--accent-soft);}
+.p4-card .p4-head .name{font-family:"Fraunces",serif; font-weight:600; font-size:1.05rem; color:var(--accent-strong);}
+.p4-card .p4-head .tagline{font-size:.78rem; color:var(--ink-soft); margin-top:5px; line-height:1.4;}
+.p4-card dl{margin:0; padding:16px 20px;}
+.p4-row{display:grid; grid-template-columns:70px 1fr; gap:12px; padding-block:11px; border-top:1px solid var(--line-soft);}
+.p4-row:first-child{border-top:none;}
+.p4-row dt{font-size:.7rem; text-transform:uppercase; letter-spacing:.05em; color:var(--accent); font-weight:600; padding-top:1px;}
+.p4-row dd{margin:0; font-size:.84rem; line-height:1.55;}
+
+/* ---- tactic cards (fundo de funil) ---- */
+.tactic-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:18px; margin-block:24px;}
+.tactic-card{border:1px solid var(--line); border-radius:14px; padding:20px 22px; background:var(--bg-raised); display:flex; flex-direction:column; gap:12px;}
+.tactic-card .thead{display:flex; justify-content:space-between; align-items:flex-start; gap:10px;}
+.tactic-card h4{font-family:"Fraunces",serif; font-size:1rem; font-weight:600; margin:0; line-height:1.35;}
+.tactic-card .desc{font-size:.85rem; color:var(--ink-soft); line-height:1.55;}
+.tactic-card .meta{display:flex; gap:8px; flex-wrap:wrap; margin-top:auto; padding-top:10px;}
+.badge{font-size:.67rem; padding:4px 10px; border-radius:999px; font-weight:600; text-transform:uppercase; letter-spacing:.03em; white-space:nowrap;}
+.badge.low{background:var(--good-soft); color:var(--good);}
+.badge.mid{background:var(--amber-soft); color:var(--amber);}
+.badge.high{background:var(--red-soft); color:var(--red);}
+.badge.evidence{background:var(--accent-soft); color:var(--accent-strong);}
+.tactic-group-label{font-size:.74rem; text-transform:uppercase; letter-spacing:.08em; font-weight:600; color:var(--accent); margin:40px 0 6px;}
+.tactic-group-label:first-of-type{margin-top:8px;}
+
+/* ---- gap table cells ---- */
+.gap-cell{display:inline-flex; align-items:center; gap:8px; font-size:.82rem;}
+.gap-dot{width:9px;height:9px;border-radius:50%; flex-shrink:0;}
+.gap-dot.has{background:var(--good);}
+.gap-dot.no{background:var(--red);}
+.gap-dot.partial{background:var(--amber);}
+
+/* ---- footnotes ---- */
+.fnotes{font-size:.84rem; color:var(--ink-soft); line-height:1.6;}
+.fnotes ol{padding-left:22px; margin:0;}
+.fnotes li{margin-bottom:14px;}
+.confidence{display:flex; gap:10px; align-items:center; margin-top:20px; padding-top:20px; border-top:1px solid var(--line-soft); font-size:.84rem; flex-wrap:wrap;}
+.confidence .dots{display:flex; gap:4px;}
+.confidence .dot{width:9px;height:9px;border-radius:50%; background:var(--line);}
+.confidence .dot.on{background:var(--accent);}
+
+footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-align:center;}
+
+@media (max-width:640px){
+  .fstep{grid-template-columns:96px 1fr auto; gap:10px;}
+  .floss{padding-left:106px;}
+  .bench-row{grid-template-columns:1fr;}
+  section{padding-block:48px;}
+  .hero{padding-block:56px 36px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="topbar-brand">ARGUS · V4 Company</span>
+    <nav class="topnav">
+      <a href="#resumo">Resumo</a>
+      <a href="#auditoria">Auditoria</a>
+      <a href="#funil">Funil</a>
+      <a href="#restricao">Restrição</a>
+      <a href="#replanejamento">Replanejamento</a>
+      <a href="#arsenal">Arsenal</a>
+      <a href="#cenarios">Cenários</a>
+      <a href="#plano">Plano</a>
+      <a href="#mercado">Concorrentes</a>
+      <a href="#anuncios">Anúncios</a>
+      <a href="#anexos">Fontes</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="hero">
+  <div class="eyebrow">Diagnóstico de funil <span class="dot"></span> Teoria das Restrições <span class="dot"></span> Setembro/2026</div>
+  <h1>A restrição da Touch Of Synergy não está no tráfego. Está no checkout.</h1>
+  <p class="sub">Auditoria completa do funil de aquisição, comparação com benchmark de mercado e plano de ação priorizado por impacto no throughput, segundo a metodologia ARGUS.</p>
+  <div class="hero-meta">
+    <div><span class="k">Cliente</span>Touch Of Synergy — Curitiba/PR</div>
+    <div><span class="k">Segmento</span>E-commerce D2C · óleos essenciais e aromaterapia premium</div>
+    <div><span class="k">Período base</span>Setembro/2026, mês em andamento (dado até 21/09)</div>
+    <div><span class="k">Objetivo</span>Investigação de queda em vendas</div>
+  </div>
+</div>
+
+<section id="resumo">
+  <div class="section-head"><span class="section-num">01</span><h2>Resumo executivo</h2></div>
+  <p class="lede">Setembro está fechando, no ritmo atual, em torno de 20% da meta de faturamento. A causa não é falta de tráfego nem verba insuficiente: é que, de cada 100 pessoas que iniciam a finalização de compra, apenas 14 completam a compra. Corrigir essa etapa, sozinha, vale mais que triplicar o investimento em mídia no estado atual do funil.</p>
+
+  <div class="grid-cards">
+    <div class="card bad"><div class="k">Faturamento vs meta</div><div class="v">20<small>%</small></div><div class="bar"><i style="width:20%"></i></div><div class="pct">R$ 4.978 de R$ 25.000</div></div>
+    <div class="card bad"><div class="k">Vendas vs meta</div><div class="v">20<small>%</small></div><div class="bar"><i style="width:20%"></i></div><div class="pct">9 de 45 vendas</div></div>
+    <div class="card"><div class="k">Ticket médio</div><div class="v tnum">R$ 553</div><div class="bar"><i style="width:100%"></i></div><div class="pct">meta R$ 550 — na meta</div></div>
+    <div class="card bad"><div class="k">ROAS real</div><div class="v tnum">1,46<small>x</small></div><div class="bar"><i style="width:29%"></i></div><div class="pct">meta 5,00x</div></div>
+    <div class="card bad"><div class="k">CAC</div><div class="v tnum">R$ 379</div><div class="bar"><i style="width:100%"></i></div><div class="pct">meta R$ 111 — 3,4x acima</div></div>
+    <div class="card bad"><div class="k">Checkout → Venda</div><div class="v tnum">14,3<small>%</small></div><div class="bar"><i style="width:24%"></i></div><div class="pct">de 63 checkouts, 9 viraram venda</div></div>
+  </div>
+
+  <div class="callout finding">
+    <span class="label">Fato medido</span>
+    O ticket médio (R$ 553) já opera praticamente na meta (R$ 550). O problema não é o que o cliente compra — é que a imensa maioria de quem chega ao checkout não termina a compra.
+  </div>
+
+  <div class="callout risk">
+    <span class="label">Achado de auditoria</span>
+    O painel mensal do cliente exibia Ticket Médio (R$ 402) e ROAS (1,26x) incompatíveis com Faturamento ÷ Vendas e Faturamento ÷ Investimento. Os valores corretos, recalculados a partir dos números brutos, são R$ 553 e 1,46x. Detalhe completo na seção 02.
+  </div>
+</section>
+
+<section id="contexto">
+  <div class="section-head"><span class="section-num">02</span><h2>Contexto validado</h2></div>
+  <div class="grid-cards" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
+    <div class="card"><div class="k">Modelo</div><div class="v" style="font-size:1rem;font-family:'IBM Plex Sans'">E-commerce D2C, marca própria</div></div>
+    <div class="card"><div class="k">Produto</div><div class="v" style="font-size:1rem;font-family:'IBM Plex Sans'">Óleos essenciais, absolutos, vegetais, blends e difusores</div></div>
+    <div class="card"><div class="k">Faixa de preço</div><div class="v tnum">R$ 68–397</div></div>
+    <div class="card"><div class="k">Canais</div><div class="v" style="font-size:1rem;font-family:'IBM Plex Sans'">Meta Ads + Google Ads, em blend</div></div>
+    <div class="card"><div class="k">Grupo setorial</div><div class="v" style="font-size:1rem;font-family:'IBM Plex Sans'">Comércio eletrônico e varejo</div></div>
+    <div class="card"><div class="k">Tipo de demanda</div><div class="v" style="font-size:1rem;font-family:'IBM Plex Sans'">Geração — categoria precisa ser educada</div></div>
+  </div>
+  <p>Grupo setorial comércio eletrônico: o funil não tem MQL nem SQL formais. A cadeia real é <b>Sessão → Adicionar ao carrinho → Checkout → Venda</b>, confirmada pelo formato do painel do próprio cliente. Não há qualificação comercial nesta operação — a decisão acontece inteiramente na sessão do site.</p>
+  <p>Percepção do cliente final sobre o problema: <em>"resultado baixo em vendas"</em>, sem apontar etapa específica. A análise abaixo qualifica exatamente onde essa percepção se confirma e onde ela erra o alvo.</p>
+</section>
+
+<section id="auditoria">
+  <div class="section-head"><span class="section-num">03</span><h2>Auditoria de dados</h2></div>
+  <p class="lede">Antes de calcular qualquer taxa, a ARGUS audita a fonte. Dois materiais foram recebidos: o painel mensal (print) e duas planilhas, forecasting anual e funil diário. Os três não se reconciliam entre si, e isso, por si só, é um achado.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Achado</th><th>Classificação</th><th class="num">Tratamento adotado</th></tr></thead>
+      <tbody>
+        <tr><td>Ticket médio e ROAS do painel não fecham com Faturamento ÷ Vendas e Faturamento ÷ Investimento</td><td><span class="tag hyp">Bloqueante</span></td><td class="num">Recalculado: R$ 553 e 1,46x</td></tr>
+        <tr><td>Coluna "Set" da planilha mensal (49 vendas, R$ 20.948) soma o dobro do que o funil diário real mostra até 21/09</td><td><span class="tag hyp">Bloqueante</span></td><td class="num">Tratada como projeção de fechamento, não realizado</td></tr>
+        <tr><td>Linhas de Add to Cart/Checkout da planilha mensal usam valor fixo de 240 checkouts/mês, marcado como "opcional" pela própria planilha</td><td><span class="tag hyp">Bloqueante</span></td><td class="num">Descartada; usados os 63 checkouts reais do funil diário</td></tr>
+        <tr><td>Faturamento captado de "Ago-Realizado" ausente na planilha de forecasting mensal</td><td><span class="tag hyp">Relevante</span></td><td class="num">Agosto tratado com confiança reduzida nessa planilha específica</td></tr>
+        <tr class="hl"><td><s>Sábados e domingos sem dado nas semanas de 17–30/08</s> — resolvido</td><td><span class="tag fact">Corrigido</span></td><td class="num">Planilha completa (01/06–23/09) recebida depois: os fins de semana têm dado normal (ex: R$ 186 e R$ 162 de investimento em 22–23/08). O arquivo anterior estava truncado, não havia pausa real de campanha.</td></tr>
+        <tr><td>Sessões (2.075) maiores que Cliques (1.464) no período — conexão acima de 100%</td><td><span class="tag hyp">Relevante</span></td><td class="num">Indica tráfego direto/orgânico misturado ao funil pago; ver linha abaixo</td></tr>
+        <tr><td>Duas measurement IDs do GA4 disparando ao mesmo tempo no site (G-QMJBM3H9EM e G-SBWSJS3V2H), além do GTM-W43BFLRZ</td><td><span class="tag hyp">Relevante</span></td><td class="num">Candidato a explicar a anomalia acima; requer remoção da tag duplicada no GTM</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:.8rem;color:var(--ink-soft);">Planilha completa recebida em 23/09/2026 (Google Sheets, funil diário de 01/06 a 23/09/2026) — passa a ser a fonte mais granular e completa disponível. Ainda é um funil em blend único: não separa investimento por canal (Meta vs. Google), então esse ponto continua em aberto.</p>
+
+  <div class="callout risk">
+    <span class="label">Lacuna resolvida — puxado direto das contas de anúncio via Windsor.ai em 23/09/2026</span>
+    O funil segue tratado como sistema único porque não dá pra saber quantas sessões/vendas vieram de cada canal sem UTM cruzado no GA4 — mas o investimento por canal já saiu do blend. Setembro (01–23): <b>Google Ads investiu R$ 2.857 (67% do total)</b>, Meta Ads investiu <b>R$ 1.397 (33%)</b>. E o achado mais importante: <b>o Meta Ads ficou zerado de 01 a 09/09</b>, os primeiros nove dias do mês — o Google carregou o funil sozinho nesse intervalo. Quando ativo, o Meta é o canal mais eficiente dos dois: CTR de 1,90% contra 1,35% do Google, e CPC de R$ 1,49 contra R$ 1,80. A pausa não é um evento isolado: o mesmo padrão de dias zerados aparece em julho (23 a 31/07, nove dias) e no início de agosto (01–02/08), desde pelo menos junho.
+  </div>
+</section>
+
+<section id="funil">
+  <div class="section-head"><span class="section-num">04</span><h2>Funil comparativo — de alcance a venda</h2></div>
+  <p class="lede">Setembro, mês em andamento (dado até 21/09, fonte: painel oficial do cliente). Cada etapa comparada com o benchmark de mercado disponível e com fonte citada — quando não há fonte brasileira específica, a etapa aparece sem comparação, não com um número inventado.</p>
+
+  <div class="funnel">
+    <div class="fstep"><div class="name">Alcance<span class="tag est" style="margin-left:6px;">estimado</span></div><div class="track"><div class="fill" style="width:100%;background:var(--ink-soft);">≈ 26.900</div></div><div class="val tnum">—</div></div>
+    <div class="floss">frequência média ≈ <b>4,2x</b> · cada pessoa alcançada viu o anúncio ~4 vezes</div>
+    <div class="fstep"><div class="name">Impressões</div><div class="track"><div class="fill" style="width:100%;background:var(--ink-soft);">112.643</div></div><div class="val tnum">—</div></div>
+    <div class="floss">↓ CTR de <b>1,3%</b> · dentro da faixa de mercado (0,9%–2,0%)⁴ — não é gargalo</div>
+    <div class="fstep"><div class="name">Cliques</div><div class="track"><div class="fill" style="width:100%">1.464</div></div><div class="val tnum">100%¹</div></div>
+    <div class="floss">↓ Sessões chegam a <b>142%</b> dos cliques — mais sessão do que clique pago, ver nota de medição abaixo</div>
+    <div class="fstep"><div class="name">Sessões</div><div class="track"><div class="fill" style="width:100%">2.075</div></div><div class="val tnum">142%¹</div></div>
+    <div class="floss">↓ conversão de <b>5,98%</b> · perda de <b>1.951</b> sessões · sem benchmark BR específico localizado</div>
+    <div class="fstep"><div class="name">Add to cart</div><div class="track"><div class="fill" style="width:35%">124</div></div><div class="val tnum">5,98%</div></div>
+    <div class="floss">↓ conversão de <b>50,8%</b> · perda de <b>61</b> carrinhos</div>
+    <div class="fstep"><div class="name">Checkout</div><div class="track"><div class="fill" style="width:20%">63</div></div><div class="val tnum">3,04%</div></div>
+    <div class="floss">↓ conversão de <b>14,3%</b> · perda de <b>54</b> checkouts — maior distância do benchmark</div>
+    <div class="fstep"><div class="name">Venda</div><div class="track"><div class="fill crit" style="width:10%">9</div></div><div class="val tnum">0,43%</div></div>
+  </div>
+  <p style="font-size:.72rem;color:var(--ink-soft);">¹ Conversão acumulada calculada a partir de Cliques (primeira etapa paga sequencial); Alcance e Impressões são métricas de exposição, não de funil sequencial, por isso aparecem sem percentual acumulado.</p>
+
+  <h3 style="margin-top:26px;">Cada etapa contra o benchmark de mercado disponível</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Etapa</th><th class="num">Touch Of Synergy</th><th class="num">Benchmark citado</th><th class="num">Distância</th></tr></thead>
+      <tbody>
+        <tr><td>CTR (Impressões → Clique)</td><td class="num">1,3%</td><td class="num">0,9%–2,0%⁴</td><td class="num"><span class="tag fact">dentro da faixa</span></td></tr>
+        <tr><td>Sessão → Add to cart</td><td class="num">5,98%</td><td class="num">sem fonte BR localizada</td><td class="num"><span class="tag est">não comparável</span></td></tr>
+        <tr class="hl"><td>Add to cart → Venda (abandono de carrinho)</td><td class="num">7,3%</td><td class="num">17%–35%⁵</td><td class="num">2,3x a 4,8x abaixo</td></tr>
+        <tr><td>Conversão geral (Sessão → Venda)</td><td class="num">0,43%</td><td class="num">2,9% categoria¹ · 1,65% piso geral¹</td><td class="num">3,8x a 6,7x abaixo</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:.78rem;color:var(--ink-soft);">O abandono de carrinho médio no e-commerce brasileiro fica entre 65% e 83,1% conforme a fonte⁵ — ou seja, uma operação típica completa entre 17% e 35% dos carrinhos iniciados. A Touch Of Synergy completa 7,3%: mesmo no cenário mais pessimista do mercado nacional, o resultado atual está de 2,3 a 4,8 vezes pior. Esse é o maior gap percentual de todo o funil, sourced e confirmado por duas fontes independentes.</p>
+
+  <div class="callout finding" style="margin-top:20px;">
+    <span class="label">Leitura da cadeia</span>
+    A maior perda em <b>volume absoluto</b> acontece entre Sessão e Carrinho (1.951 sessões). Mas a maior perda em <b>distância do benchmark citado</b> acontece entre Carrinho e Venda: mesmo comparado ao pior cenário nacional de abandono de carrinho, a Touch Of Synergy está fora da curva. Essas duas leituras não apontam para o mesmo lugar — e é exatamente aí que entra a Teoria das Restrições, na próxima seção.
+  </div>
+</section>
+
+<section id="restricao">
+  <div class="section-head"><span class="section-num">05</span><h2>A restrição — Teoria das Restrições</h2></div>
+  <p class="lede">A restrição não é a etapa com a pior taxa isolada. É a etapa cuja correção libera mais throughput para o sistema inteiro. Os cinco vetores abaixo comparam as duas candidatas.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Vetor</th><th class="num">Sessão → Carrinho</th><th class="num">Checkout → Venda</th></tr></thead>
+      <tbody>
+        <tr><td>Volume perdido (unidades)</td><td class="num">1.951</td><td class="num">54</td></tr>
+        <tr><td>Custo do volume perdido</td><td class="num">R$ 3.200</td><td class="num">R$ 2.923</td></tr>
+        <tr><td>Distância do benchmark</td><td class="num">5,98% · sem fonte BR</td><td class="num">Add to cart→Venda 7,3% vs. 17–35% BR⁵</td></tr>
+        <tr class="hl"><td>Ganho projetado se corrigida (mesmo período, mesma verba)</td><td class="num">+5 vendas · +R$ 2.544</td><td class="num">+16 vendas · +R$ 8.959</td></tr>
+        <tr><td>Efeito cascata</td><td class="num">Multiplica pelas 2 etapas seguintes</td><td class="num">Direto em receita, sem perdas posteriores</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout finding">
+    <span class="label">Restrição principal — sistema consolidado</span>
+    <b>Checkout → Venda.</b> Apesar de perder menos volume em números absolutos, é a etapa mais distante do padrão esperado e a mais próxima da receita — cada checkout que chega ali já consumiu praticamente todo o custo de aquisição. Corrigi-la vale 3,5x mais faturamento, no mesmo período e sem investir um real a mais em mídia, do que corrigir o topo do funil.
+  </div>
+
+  <h3 style="margin-top:24px;">Descarte da restrição falsa</h3>
+  <div class="grid-cards" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+    <div class="card"><div class="k">Etapa rastreada corretamente?</div><div class="v" style="font-size:.95rem;font-family:'IBM Plex Sans';">Sim — checkout e venda vêm do mesmo sistema de loja, sem a inconsistência vista no topo do funil</div></div>
+    <div class="card"><div class="k">Ciclo de vendas maior que o período?</div><div class="v" style="font-size:.95rem;font-family:'IBM Plex Sans';">Não — compra por impulso, ciclo é a própria sessão</div></div>
+    <div class="card"><div class="k">Restrição de capacidade?</div><div class="v" style="font-size:.95rem;font-family:'IBM Plex Sans';">Não se aplica — não há atendimento comercial neste funil</div></div>
+  </div>
+  <p>O topo do funil (Cliques → Sessões acima de 100%) tem um problema de medição real, registrado na auditoria, mas ele não invalida o achado do checkout: são etapas medidas em sistemas diferentes e a queda no checkout é consistente em todas as semanas de setembro.</p>
+
+  <div class="callout risk">
+    <span class="label">Deixou de ser hipótese — navegado ao vivo em 23/09/2026</span>
+    Naveguei o fluxo real de produto → carrinho → checkout como cliente (WooCommerce). Três achados confirmados, não mais suposição:
+    <ul style="margin:10px 0 0; padding-left:20px; font-size:.86rem;">
+      <li style="margin-bottom:6px;"><b>Choque de frete confirmado.</b> Um óleo de R$ 152 vira R$ 176,90 no carrinho — taxa fixa de R$ 24,90, porque o grátis só vale acima de R$ 300. O carrinho ainda mostra a barra "faltam R$ 148 para frete grátis", que é honesta mas também é o momento exato em que o cliente sente que pagou "frete demais" por não ter chegado no grátis.</li>
+      <li style="margin-bottom:6px;"><b>Checkout de 4 etapas</b> (Meus Dados → Endereço → Entrega → Pagar), com CPF obrigatório logo na primeira tela. Pix, cartão parcelado e boleto <i>existem</i> — mas só aparecem na etapa 4, nunca antes. Concorrentes como By Samia e Phytoterápica mostram Pix e parcelamento desde a página de produto.</li>
+      <li style="margin-bottom:6px;"><b>Bug de UX real, com print:</b> o banner de cookies ("Nós nos preocupamos com a sua privacidade") abre sobreposto ao formulário — no carrinho, ele cobre o preço e a quantidade; no checkout, cobre exatamente o campo de CPF. Quem não souber fechar o banner primeiro não consegue preencher o formulário.</li>
+      <li><b>A página responde devagar ao toque, não devagar ao carregar.</b> Dado de campo do Google (PageSpeed Insights, 28 dias de usuários reais): o LCP mobile está dentro do limite bom (2,4s), mas o INP (tempo entre o toque e a tela reagir) está em 232ms, com só 28% das interações dentro do limite bom de 200ms. É exatamente o tipo de trava que aparece ao clicar "Adicionar ao carrinho" ou "Continuar" entre as etapas do checkout — um candidato direto a investigar é o script do GA4 duplicado (seção 03) rodando em cada clique.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="replanejamento">
+  <div class="section-head"><span class="section-num">06</span><h2>Replanejamento — o que manter, o que corrigir</h2></div>
+  <p class="lede">Sem retomar contexto de mercado: o que os dados de setembro mostram que está funcionando, o que não está, e a ação de melhoria que nasce de cada ponto que não está.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Está funcionando</th><th class="num">Evidência</th></tr></thead>
+      <tbody>
+        <tr><td>Ticket médio</td><td class="num">R$ 553 — praticamente na meta de R$ 550</td></tr>
+        <tr><td>Qualidade do criativo/segmentação de topo</td><td class="num">CTR 1,3% — dentro da faixa de mercado (0,9%–2,0%)</td></tr>
+        <tr><td>Carrinho → Checkout</td><td class="num">50,8% de quem adiciona ao carrinho chega a iniciar o checkout — taxa saudável</td></tr>
+        <tr><td>Produto, preço e posicionamento</td><td class="num">Faixa premium justificada por certificação europeia e curadoria — não é o que afasta o cliente</td></tr>
+        <tr><td>Percepção de marca</td><td class="num">Avaliações no Google consistentemente 5 estrelas</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Não está funcionando</th><th class="num">Evidência</th><th>Ação de melhoria</th></tr></thead>
+      <tbody>
+        <tr class="hl"><td>Checkout → Venda</td><td class="num">14,3% (7,3% sobre carrinho) — 2,3 a 4,8x abaixo do pior cenário nacional</td><td>Arsenal tático de fundo de funil (seção 07)</td></tr>
+        <tr><td>ROAS</td><td class="num">1,46x vs. meta 5,00x</td><td>Consequência direta do checkout — não corrigir mídia até resolver a restrição</td></tr>
+        <tr><td>CAC</td><td class="num">R$ 379 vs. meta R$ 111 — 3,4x acima</td><td>Idem — CAC cai automaticamente quando o checkout converte mais</td></tr>
+        <tr><td>Rastreamento do GA4</td><td class="num">Duas measurement IDs disparando ao mesmo tempo</td><td>Auditoria de tags no GTM, remover a duplicada (seção 03)</td></tr>
+        <tr><td>Responsividade ao toque (INP) no mobile</td><td class="num">232ms, só 28% das interações dentro do limite bom — dado de campo real</td><td>Investigar scripts pesados no clique de add-to-cart e nas transições do checkout (seção 05)</td></tr>
+        <tr><td>Sinalizadores de confiança no checkout</td><td class="num">Sem Pix com desconto exposto, sem parcelamento exposto, sem contador de avaliações — concorrentes maduros já têm</td><td>Replicar os 5 itens do gap competitivo (seção 10)</td></tr>
+        <tr><td>Ritmo de fechamento do mês</td><td class="num">Run-rate aponta ~28% da meta de faturamento</td><td>Ver cenários de recuperação (seção 08)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout finding">
+    <span class="label">Leitura do replanejamento</span>
+    Tudo que está funcionando fica no topo e no meio do funil — tráfego, criativo, ticket médio, posicionamento. Tudo que não está funcionando fica no fim do funil e na instrumentação. Isso simplifica a decisão: não é hora de aumentar verba de mídia nem de repensar produto ou preço. É hora de parar de perder, no checkout, o que o topo do funil já está entregando corretamente.
+  </div>
+</section>
+
+<section id="arsenal">
+  <div class="section-head"><span class="section-num">07</span><h2>Fundo de funil — arsenal tático</h2></div>
+  <p class="lede">Tudo que está ao alcance da operação para fechar a distância até o benchmark, do gratuito ao que exige orçamento. Cada item traz esforço, prazo e a evidência desta auditoria que o justifica — nenhum é genérico, todos respondem a um achado específico das seções 03 a 05.</p>
+
+  <div class="tactic-group-label">Correção direta — sem custo de ferramenta</div>
+  <div class="tactic-grid">
+    <div class="tactic-card" style="border-color:var(--red);">
+      <div class="thead"><h4>Corrigir o banner de cookies sobreposto ao formulário</h4></div>
+      <div class="desc">Print em mãos: o banner cobre o campo de CPF no checkout e o preço no carrinho. É bug de CSS/z-index, resolve em horas.</div>
+      <div class="meta"><span class="badge low">Esforço baixo</span><span class="badge high">Impacto alto</span><span class="badge evidence">Print próprio</span></div>
+    </div>
+    <div class="tactic-card" style="border-color:var(--red);">
+      <div class="thead"><h4>Expor Pix, parcelamento e frete antes do checkout</h4></div>
+      <div class="desc">As formas de pagamento já existem — só aparecem na etapa 4 de 4. Subir esse bloco para a página de produto e o carrinho, como By Samia e Phytoterápica já fazem.</div>
+      <div class="meta"><span class="badge low">Esforço baixo</span><span class="badge high">Impacto alto</span><span class="badge evidence">Navegação ao vivo</span></div>
+    </div>
+    <div class="tactic-card">
+      <div class="thead"><h4>Rever o limiar de frete grátis ou a taxa fixa</h4></div>
+      <div class="desc">R$ 300 é alto para o ticket médio real (R$ 553, mas muitos carrinhos individuais ficam abaixo). Testar limiar mais baixo (R$ 150–200) ou embutir o frete no preço de produtos de entrada.</div>
+      <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge high">Impacto alto</span><span class="badge evidence">Carrinho R$ 152 → R$ 176,90</span></div>
+    </div>
+    <div class="tactic-card">
+      <div class="thead"><h4>Reduzir o checkout de 4 para 2 etapas</h4></div>
+      <div class="desc">Unificar "Meus Dados" + "Endereço" numa tela, ou usar autopreenchimento de CEP. Cada etapa a menos reduz ponto de abandono.</div>
+      <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge mid">Impacto médio</span><span class="badge evidence">Navegação ao vivo</span></div>
+    </div>
+    <div class="tactic-card">
+      <div class="thead"><h4>Remover a measurement ID duplicada do GA4</h4></div>
+      <div class="desc">Duas tags GA4 disparando ao mesmo tempo (seção 03). Sem isso corrigido, qualquer decisão futura baseada no GA4 herda o mesmo ruído.</div>
+      <div class="meta"><span class="badge low">Esforço baixo</span><span class="badge mid">Impacto médio</span><span class="badge evidence">Captura de rede</span></div>
+    </div>
+    <div class="tactic-card">
+      <div class="thead"><h4>Adicionar contador de avaliações por produto</h4></div>
+      <div class="desc">A nota 5 estrelas existe no Google mas não aparece no site. By Samia expõe 196–413 avaliações por produto — prova social no momento exato da decisão.</div>
+      <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge mid">Impacto médio</span><span class="badge evidence">Auditoria de concorrentes</span></div>
+    </div>
+  </div>
+
+  <div class="tactic-group-label">Performance — responsividade ao toque, não carregamento</div>
+  <div class="tactic-grid">
+    <div class="tactic-card" style="border-color:var(--red);">
+      <div class="thead"><h4>Investigar o que trava ao clicar em "Adicionar" e "Continuar"</h4></div>
+      <div class="desc">INP de 232ms no mobile (dado de campo real, 28 dias) — só 28% das interações respondem dentro do limite bom. Candidatos prováveis: script do GA4 duplicado (seção 03) rodando em cada clique, chat/pixel pesado, ou validação de formulário no checkout. Perfilar com o DevTools em "Performance" no exato momento do clique.</div>
+      <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge high">Impacto alto</span><span class="badge evidence">PageSpeed Insights, campo real</span></div>
+    </div>
+    <div class="tactic-card">
+      <div class="thead"><h4>Adiar scripts não essenciais até após a interação principal</h4></div>
+      <div class="desc">Chat, pixels secundários e widgets de review, se houver, não precisam carregar antes do usuário conseguir clicar. LCP já está dentro do limite bom (2,4s) — o ganho aqui é em responsividade, não em velocidade de carregamento.</div>
+      <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge mid">Impacto médio</span><span class="badge evidence">PageSpeed Insights, campo real</span></div>
+    </div>
+  </div>
+
+  <div class="tactic-group-label">Recuperação de carrinho abandonado</div>
+  <div class="callout gap">
+    <span class="label">Ponto de partida — hoje é manual</span>
+    Confirmado pelo cliente: a recuperação de carrinho abandonado hoje não tem régua, é manual. Não existe benchmark de fonte nomeada para recuperação puramente manual (sem cadência, sem gatilho automático) — mas por não ter timing garantido nem cobrir 100% dos carrinhos, ela estruturalmente fica abaixo de qualquer canal automatizado. A tabela abaixo compara os canais automatizados entre si, para decidir por onde começar a sair do manual.
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Canal</th><th class="num">Taxa de recuperação</th><th class="num">Por quê</th></tr></thead>
+      <tbody>
+        <tr class="hl"><td>WhatsApp automatizado</td><td class="num">15%–35%⁸</td><td class="num">Abertura acima de 90%, lida em minutos</td></tr>
+        <tr><td>SMS</td><td class="num">8%–15%⁸</td><td class="num">Direto, mas menos contexto que WhatsApp</td></tr>
+        <tr><td>E-mail</td><td class="num">5%–10%⁸ (retorno de 21% s/ abertura⁶)</td><td class="num">Abertura mais lenta, mas ainda vale por volume</td></tr>
+        <tr><td>Manual (hoje)</td><td class="num">sem benchmark — abaixo dos automatizados</td><td class="num">Sem cadência, sem gatilho, depende de alguém lembrar</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tactic-grid">
+    <div class="tactic-card">
+      <div class="thead"><h4>E-mail automático de carrinho abandonado</h4></div>
+      <div class="desc">Sequência de 3 disparos (1h, 24h, 72h após abandono), com o produto do carrinho e, no último, um incentivo. Abertura média de 45% e 21% retornam para concluir a compra, segundo pesquisa nacional⁶.</div>
+      <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge mid">Impacto médio</span><span class="badge evidence">Benchmark BR⁶</span></div>
+    </div>
+    <div class="tactic-card" style="border-color:var(--red);">
+      <div class="thead"><h4>Régua de WhatsApp para carrinho abandonado</h4></div>
+      <div class="desc">O canal com melhor taxa de recuperação da categoria (15%–35%⁸) e o cliente já atende bem por WhatsApp — automatizar o primeiro contato no mesmo canal onde a prova social já mostra que funciona.</div>
+      <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge high">Impacto alto</span><span class="badge evidence">Benchmark BR⁷ ⁸</span></div>
+    </div>
+    <div class="tactic-card">
+      <div class="thead"><h4>Rotear carrinhos abandonados para a IA de atendimento já existente</h4></div>
+      <div class="desc">O cliente já opera uma IA de atendimento — isso muda o cálculo desta ação de "montar do zero" para "adicionar um novo gatilho" numa ferramenta que já existe. Para carrinhos de maior valor (ex: R$ 200+), acionar essa IA para contato ativo em vez de esperar o cliente procurar.</div>
+      <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge high">Impacto alto</span><span class="badge evidence">Infra já existe — confirmado pelo cliente</span></div>
+    </div>
+    <div class="tactic-card">
+      <div class="thead"><h4>Popup de saída (exit-intent) com incentivo</h4></div>
+      <div class="desc">Ao detectar intenção de saída no carrinho ou checkout, oferecer o valor que falta para o frete grátis ou um cupom pequeno — ataca o momento exato do choque de frete identificado.</div>
+      <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge mid">Impacto médio</span><span class="badge evidence">Hipótese — testar em piloto</span></div>
+    </div>
+    <div class="tactic-card">
+      <div class="thead"><h4>Retargeting de carrinho abandonado (Meta + Google)</h4></div>
+      <div class="desc">Público de quem chegou ao carrinho ou checkout sem comprar, campanha dedicada, criativo mostrando o produto exato deixado no carrinho.</div>
+      <div class="meta"><span class="badge low">Esforço baixo</span><span class="badge mid">Impacto médio</span><span class="badge evidence">Prática de mercado</span></div>
+    </div>
+  </div>
+
+  <div class="tactic-group-label">Ver de verdade onde o cliente trava</div>
+  <div class="tactic-grid">
+    <div class="tactic-card">
+      <div class="thead"><h4>Instalar Microsoft Clarity (gratuito)</h4></div>
+      <div class="desc">Gravação de sessão e mapa de calor sem custo — cliente confirmou que ainda não está instalado. Prioridade: gravar as próximas 50 sessões que cheguem ao checkout e assistir sem cortes.</div>
+      <div class="meta"><span class="badge low">Esforço baixo</span><span class="badge high">Impacto alto</span><span class="badge evidence">Confirmado: não instalado</span></div>
+    </div>
+    <div class="tactic-card">
+      <div class="thead"><h4>Teste de usuário guiado (5 pessoas fora da empresa)</h4></div>
+      <div class="desc">Pedir para 5 pessoas que não conhecem o site comprarem um produto de verdade, gravando a tela. Mais rápido que esperar volume orgânico no Clarity e já validaria o bug do cookie banner e a fricção do frete.</div>
+      <div class="meta"><span class="badge low">Esforço baixo</span><span class="badge high">Impacto alto</span><span class="badge evidence">Complementa o Clarity</span></div>
+    </div>
+  </div>
+
+  <div class="callout finding">
+    <span class="label">Por onde começar</span>
+    Os dois itens de esforço baixo e impacto alto — corrigir o banner de cookies e subir Pix/parcelamento/frete para antes do checkout — não dependem de ferramenta nova, orçamento ou aprovação de terceiros. Dá para ir ao ar essa semana e já observar o efeito nas próximas sessões de checkout, antes mesmo de instalar Clarity ou montar régua de recuperação.
+  </div>
+</section>
+
+<section id="cenarios">
+  <div class="section-head"><span class="section-num">08</span><h2>Cenários</h2></div>
+  <p class="lede">Projeção de fechamento de setembro nos 30 dias, com o ritmo diário observado até 21/09. Estimativa de run-rate, não meta contratual.</p>
+  <div class="scenarios">
+    <div class="scenario">
+      <h4>Atual — sem mudança</h4>
+      <div class="desc">Mantendo o ritmo observado até aqui</div>
+      <div class="row"><span>Vendas no mês</span><b class="tnum">≈ 13</b></div>
+      <div class="row"><span>Faturamento</span><b class="tnum">≈ R$ 7.100</b></div>
+      <div class="row"><span>% da meta</span><b class="tnum">28%</b></div>
+    </div>
+    <div class="scenario hero-scenario">
+      <h4>Correção de checkout</h4>
+      <div class="desc">Checkout → Venda sobe de 14,3% para 40%, mesma verba, mesmo tráfego</div>
+      <div class="row"><span>Vendas no mês</span><b class="tnum">≈ 36</b></div>
+      <div class="row"><span>Faturamento</span><b class="tnum">≈ R$ 19.700</b></div>
+      <div class="row"><span>% da meta</span><b class="tnum">79%</b></div>
+    </div>
+    <div class="scenario">
+      <h4>Checkout + topo de funil</h4>
+      <div class="desc">Soma a correção de checkout com Sessão → Carrinho subindo para ~9%</div>
+      <div class="row"><span>Vendas no mês</span><b class="tnum">≈ 41–45</b></div>
+      <div class="row"><span>Faturamento</span><b class="tnum">≈ R$ 22.600–25.000</b></div>
+      <div class="row"><span>% da meta</span><b class="tnum">90–100%</b></div>
+    </div>
+  </div>
+  <p style="font-size:.8rem;color:var(--ink-soft);">Projeções lineares a partir do ritmo diário de 01–21/09, propagando as taxas atuais nas demais etapas. Marcadas como estimativa — não substituem teste real em produção.</p>
+</section>
+
+<section id="plano">
+  <div class="section-head"><span class="section-num">09</span><h2>Plano de ação priorizado</h2></div>
+  <p class="lede">Ordenado por alavancagem de throughput, não por facilidade de execução. O item 1 vale mais que todos os outros somados.</p>
+
+  <div class="plan-group p1">
+    <div class="ghead"><span class="pnum">1</span><h3 style="margin:0;">Restrição principal — Checkout → Venda</h3></div>
+    <div class="plan-list">
+      <div class="plan-item"><div><div class="t">Gravar sessão dos checkouts (Hotjar ou Clarity)</div><div class="d">Assistir aos 63 checkouts de setembro para localizar o ponto exato de abandono antes de mudar qualquer coisa no fluxo.</div></div><div class="impact">Diagnóstico</div></div>
+      <div class="plan-item"><div><div class="t">Antecipar o frete no carrinho, antes do checkout</div><div class="d">Frete grátis hoje é condicional (acima de R$ 300, ou só Curitiba) — testar se o valor surpresa no checkout é o motivo do abandono.</div></div><div class="impact">Alta</div></div>
+      <div class="plan-item"><div><div class="t">Subir o desconto do Pix para a página de produto e o carrinho</div><div class="d">O desconto já existe (confirmado pelo cliente), mas só aparece na etapa 4 de 4 do checkout. By Samia expõe o mesmo tipo de desconto desde a home — é literalmente copiar um recurso que a Touch Of Synergy já tem, só mudando onde ele aparece.</div></div><div class="impact">Alta</div></div>
+      <div class="plan-item"><div><div class="t">Expor parcelamento sem juros (3x a 6x) desde a página de produto</div><div class="d">By Samia e Phytoterápica mostram isso antes mesmo do carrinho. Hoje não está visível em lugar nenhum do funil da Touch Of Synergy.</div></div><div class="impact">Alta</div></div>
+      <div class="plan-item"><div><div class="t">Trocar o frete condicional por um valor único e visível</div><div class="d">Concorrentes usam um número redondo e claro (R$ 99,90 ou R$ 250). A regra atual — R$ 300 ou só Curitiba — obriga o cliente a calcular se ele se qualifica, no pior momento possível.</div></div><div class="impact">Alta</div></div>
+      <div class="plan-item"><div><div class="t">Adicionar contador de avaliações por produto</div><div class="d">By Samia expõe 196 e 413 avaliações em produtos-chave. A Touch Of Synergy tem nota 5 estrelas no Google mas não traz isso para dentro do site nem por produto.</div></div><div class="impact">Média</div></div>
+      <div class="plan-item"><div><div class="t">Simplificar o formulário de checkout</div><div class="d">Reduzir campos ao mínimo necessário; avaliar checkout de página única.</div></div><div class="impact">Média</div></div>
+    </div>
+  </div>
+
+  <div class="plan-group p2">
+    <div class="ghead"><span class="pnum">2</span><h3 style="margin:0;">Segunda alavancagem — Sessão → Carrinho</h3></div>
+    <div class="plan-list">
+      <div class="plan-item"><div><div class="t">Revisar segmentação de público</div><div class="d">"Públicos mais abertos" foi testado em julho e o custo por sessão piorou em agosto (R$ 0,75 → R$ 1,30). Considerar voltar a públicos qualificados ou lookalike de compradores.</div></div><div class="impact">Alta</div></div>
+      <div class="plan-item"><div><div class="t">Reforçar conteúdo educativo na página de produto</div><div class="d">Demanda de geração — o público não chega sabendo que precisa do produto. Benefícios e modo de uso acima da dobra.</div></div><div class="impact">Média</div></div>
+      <div class="plan-item"><div><div class="t">Implementar orderbump no carrinho</div><div class="d">Já estava anotado como ação de julho para ticket médio — não há evidência de que foi implementado.</div></div><div class="impact">Média</div></div>
+    </div>
+  </div>
+
+  <div class="plan-group p3">
+    <div class="ghead"><span class="pnum">3</span><h3 style="margin:0;">Pré-requisito — corrigir a instrumentação</h3></div>
+    <div class="plan-list">
+      <div class="plan-item"><div><div class="t">Corrigir a fórmula de Ticket Médio e ROAS no painel</div><div class="d">Hoje desconectada do Faturamento real — quem olha o painel está tomando decisão com o número errado.</div></div><div class="impact">Bloqueante</div></div>
+      <div class="plan-item"><div><div class="t">Unificar a planilha de forecasting com o funil diário</div><div class="d">Elimina a divergência entre "Set = projeção" e "Set = realizado" que hoje existe na mesma aba.</div></div><div class="impact">Alta</div></div>
+      <div class="plan-item"><div><div class="t">Investigar por que o Meta Ads fica com dias zerados recorrentes</div><div class="d">Ficou pausado de 01 a 09/09, de 23 a 31/07 e em 01–02/08 — sempre o canal mais eficiente dos dois (CTR 1,90% vs. 1,35% do Google, CPC R$ 1,49 vs. R$ 1,80) some por dias seguidos. Pode ser reprovação de anúncio, esgotamento de público ou corte manual de verba — cada causa tem correção diferente.</div></div><div class="impact">Alta</div></div>
+      <div class="plan-item"><div><div class="t">Cruzar UTM no GA4 para saber sessão e venda por canal</div><div class="d">O investimento já está separado (Windsor.ai); falta a mesma visão para sessões, add to cart, checkout e venda, hoje só disponíveis em blend.</div></div><div class="impact">Média</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="mercado">
+  <div class="section-head"><span class="section-num">10</span><h2>Concorrentes — análise 4Ps</h2></div>
+  <p class="lede">Quatro concorrentes diretos no mercado brasileiro de óleos essenciais e aromaterapia, auditados nos próprios sites em 23/09/2026. Nem todos expõem preço, frete e pagamento na home — isso já é, em si, um dado sobre maturidade de e-commerce no setor. BioEssência ficou de fora: o site bloqueou o acesso automatizado (HTTP 403) e os dados públicos disponíveis não eram suficientes para uma comparação justa.</p>
+
+  <div class="p4-grid">
+    <div class="p4-card">
+      <div class="p4-head"><div class="name">By Samia</div><div class="tagline">"Aromaterapia pura desde 2000" — o mais maduro em conversão dos cinco</div></div>
+      <dl>
+        <div class="p4-row"><dt>Produto</dt><dd>Óleos essenciais, vegetais, blends, roll-ons, body splash, kits temáticos, suplementos líquidos</dd></div>
+        <div class="p4-row"><dt>Preço</dt><dd>Entrada em R$ 19,90 (óleo essencial) — ponto de entrada bem mais baixo que os R$ 68 da Touch Of Synergy</dd></div>
+        <div class="p4-row"><dt>Praça</dt><dd>E-commerce próprio nacional + revenda em Beleza do Campo</dd></div>
+        <div class="p4-row"><dt>Promoção</dt><dd>Frete grátis acima de R$ 99,90 · 3x sem juros · <b>10% de desconto no Pix</b> · kits com até 50% off · avaliações com contador (196 e 413 reviews em produtos-chave)</dd></div>
+      </dl>
+    </div>
+    <div class="p4-card">
+      <div class="p4-head"><div class="name">Phytoterápica</div><div class="tagline">"Clean beauty" — mais formas de pagamento expostas dos cinco</div></div>
+      <dl>
+        <div class="p4-row"><dt>Produto</dt><dd>Óleos essenciais e vegetais brasileiros, sinergias, cosméticos, higiene, kits, acessórios</dd></div>
+        <div class="p4-row"><dt>Preço</dt><dd>R$ 20,40 a R$ 214,40, com descontos regulares de até 50%</dd></div>
+        <div class="p4-row"><dt>Praça</dt><dd>E-commerce próprio (VTEX)</dd></div>
+        <div class="p4-row"><dt>Promoção</dt><dd>Frete grátis acima de R$ 250 (Sul/Sudeste) · <b>Mastercard, Visa, Amex, Elo, Hipercard, Pix</b> todos visíveis · até 6x sem juros · cupom "CUPOM5" exposto na home · selos Vegano, Cruelty-Free, VTEX, Google Safe Browsing</dd></div>
+      </dl>
+    </div>
+    <div class="p4-card">
+      <div class="p4-head"><div class="name">WNF Aromaterapia</div><div class="tagline">Autoridade histórica — produção própria, marketing institucional forte</div></div>
+      <dl>
+        <div class="p4-row"><dt>Produto</dt><dd>+180 produtos em 10 categorias: óleos essenciais, vegetais, cosméticos, capilares, skincare, casa</dd></div>
+        <div class="p4-row"><dt>Preço</dt><dd>Não exposto na home — barreira de comparação para quem chega via anúncio</dd></div>
+        <div class="p4-row"><dt>Praça</dt><dd>E-commerce próprio + rede de revenda autorizada (ex: Beleza do Campo)</dd></div>
+        <div class="p4-row"><dt>Promoção</dt><dd>"Semana do cliente", desconto de primeira compra, kits de rotina · pagamento e frete não expostos na home — mesma lacuna encontrada na Touch Of Synergy</dd></div>
+      </dl>
+    </div>
+    <div class="p4-card">
+      <div class="p4-head"><div class="name">Via Aroma</div><div class="tagline">Institucional forte, comercial escondido em domínio separado</div></div>
+      <dl>
+        <div class="p4-row"><dt>Produto</dt><dd>Aromatizadores, óleos essenciais, cosméticos veganos, casa, pet</dd></div>
+        <div class="p4-row"><dt>Preço</dt><dd>Não exposto no site institucional</dd></div>
+        <div class="p4-row"><dt>Praça</dt><dd>Site institucional separado da loja transacional (viaaromaloja.com.br) + Shopee e Mercado Livre com frete grátis e parcelamento</dd></div>
+        <div class="p4-row"><dt>Promoção</dt><dd>Nos marketplaces: frete grátis no dia, parcelamento sem juros — mais agressivo fora do site próprio do que dentro dele</dd></div>
+      </dl>
+    </div>
+    <div class="p4-card" style="border-color:var(--accent); box-shadow:0 0 0 1px var(--accent);">
+      <div class="p4-head" style="background:var(--red-soft);"><div class="name" style="color:var(--red);">Touch Of Synergy</div><div class="tagline">O próprio cliente, auditado com a mesma régua</div></div>
+      <dl>
+        <div class="p4-row"><dt>Produto</dt><dd>Óleos essenciais, absolutos, vegetais, blends, synergies, difusores — 5 categorias, certificação orgânica europeia</dd></div>
+        <div class="p4-row"><dt>Preço</dt><dd>R$ 68 a R$ 397 — ponto de entrada 3,4x mais caro que a By Samia (R$ 19,90)</dd></div>
+        <div class="p4-row"><dt>Praça</dt><dd>E-commerce próprio, Curitiba, atendimento por WhatsApp</dd></div>
+        <div class="p4-row"><dt>Promoção</dt><dd>Frete grátis condicional (R$ 300 ou só Curitiba), taxa fixa de R$ 24,90 abaixo disso · Pix, cartão parcelado e boleto <b>existem, mas só aparecem na etapa 4 de 4 do checkout</b> · <b>nenhum contador de avaliações</b> · nenhum cupom visível na home</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <h3 style="margin-top:8px;">O que a Touch Of Synergy ainda não tem</h3>
+  <p style="font-size:.85rem;color:var(--ink-soft);">Comparação direta contra os elementos de checkout e conversão que os concorrentes mais maduros (By Samia e Phytoterápica) já expõem na própria home ou no carrinho — os mesmos pontos que a seção 05 já apontava como hipótese para o abandono no checkout, agora confirmados como lacuna competitiva real, não só suposição interna.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Elemento de conversão</th><th>By Samia</th><th>Phytoterápica</th><th>Touch Of Synergy</th></tr></thead>
+      <tbody>
+        <tr><td>Pix com desconto explícito</td><td><span class="gap-cell"><span class="gap-dot has"></span>10% off, na home</span></td><td><span class="gap-cell"><span class="gap-dot has"></span>aceito, na home</span></td><td><span class="gap-cell"><span class="gap-dot partial"></span>desconto existe (confirmado pelo cliente), mas só aparece na etapa 4/4</span></td></tr>
+        <tr><td>Parcelamento sem juros exposto</td><td><span class="gap-cell"><span class="gap-dot has"></span>3x, na home</span></td><td><span class="gap-cell"><span class="gap-dot has"></span>6x, na home</span></td><td><span class="gap-cell"><span class="gap-dot partial"></span>existe, só na etapa 4/4</span></td></tr>
+        <tr><td>Valor de frete grátis claro na home</td><td><span class="gap-cell"><span class="gap-dot has"></span>R$ 99,90</span></td><td><span class="gap-cell"><span class="gap-dot has"></span>R$ 250</span></td><td><span class="gap-cell"><span class="gap-dot no"></span>R$ 300 + taxa fixa R$ 24,90 se não atingir</span></td></tr>
+        <tr><td>Contador de avaliações por produto</td><td><span class="gap-cell"><span class="gap-dot has"></span>196–413</span></td><td><span class="gap-cell"><span class="gap-dot no"></span>ausente</span></td><td><span class="gap-cell"><span class="gap-dot no"></span>ausente</span></td></tr>
+        <tr><td>Cupom de desconto visível</td><td><span class="gap-cell"><span class="gap-dot partial"></span>via kits</span></td><td><span class="gap-cell"><span class="gap-dot has"></span>CUPOM5</span></td><td><span class="gap-cell"><span class="gap-dot no"></span>ausente</span></td></tr>
+        <tr><td>Selos de pagamento/segurança visíveis</td><td><span class="gap-cell"><span class="gap-dot partial"></span>parcial</span></td><td><span class="gap-cell"><span class="gap-dot has"></span>4 bandeiras + Pix + VTEX</span></td><td><span class="gap-cell"><span class="gap-dot has"></span>certificação orgânica (não é selo de pagamento)</span></td></tr>
+        <tr><td>Política de troca/devolução visível</td><td><span class="gap-cell"><span class="gap-dot partial"></span>não auditado</span></td><td><span class="gap-cell"><span class="gap-dot partial"></span>não auditado</span></td><td><span class="gap-cell"><span class="gap-dot no"></span>ausente</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout finding">
+    <span class="label">Cenário claro para o e-commerce</span>
+    Produto, preço e posicionamento da Touch Of Synergy não são o problema — a marca compete numa faixa mais premium que a maioria (certificação europeia, curadoria de óleos raros) e isso é legítimo. O que falta é exatamente o conjunto de <b>sinalizadores de confiança e redução de fricção no pagamento</b> que os dois concorrentes mais maduros do setor (By Samia e Phytoterápica) já resolveram: Pix com desconto, parcelamento exposto, frete grátis com valor claro, prova social quantificada e cupom visível. Isso conecta diretamente com o achado da seção 05 — a restrição está no checkout, e agora há evidência de mercado de exatamente o que colocar lá.
+  </div>
+</section>
+
+<section id="anuncios">
+  <div class="section-head"><span class="section-num">11</span><h2>Anúncios — o que os concorrentes veiculam e o que testar</h2></div>
+  <p class="lede">Biblioteca de Anúncios do Meta, Brasil, checada em 23/09/2026. Nem todo concorrente mapeado está lá: By Samia e Phytoterápica não têm nenhum anúncio ativo ou histórico encontrado — a maturidade de checkout delas não vem de mídia paga no Meta. A própria Touch Of Synergy também não aparece na busca por nome, apesar do investimento real confirmado via Windsor.ai — sinal de que a Página de anúncios pode estar registrada sob outro nome, vale confirmar internamente.</p>
+
+  <div class="p4-grid">
+    <div class="p4-card">
+      <div class="p4-head"><div class="name">WNF Aromaterapia</div><div class="tagline">10 anúncios ativos, todos desde 25–26/06/2026 — tom de ritual e bem-estar</div></div>
+      <dl>
+        <div class="p4-row"><dt>Formato</dt><dd>Quase todo em vídeo, foco em um óleo por anúncio (menta, copaíba, lavanda, alecrim, melaleuca)</dd></div>
+        <div class="p4-row"><dt>Copy</dt><dd>"Transforme sua rotina em um momento de tranquilidade 💜✨" · "Copaíba puro 🌿 — força da natureza em sua forma mais nobre" — benefício emocional primeiro, ingrediente depois</dd></div>
+        <div class="p4-row"><dt>Oferta</dt><dd>Nenhum preço ou desconto aparece na própria peça — CTA é sempre "Shop now", sem urgência</dd></div>
+        <div class="p4-row"><dt>Extra</dt><dd>Um carrossel educativo ("6 formas de usar melaleuca") gerando engajamento sem venda direta</dd></div>
+      </dl>
+    </div>
+    <div class="p4-card">
+      <div class="p4-head"><div class="name">Via Aroma</div><div class="tagline">~97 anúncios, rodando sem pausa desde ago/2025 — campanha always-on de performance</div></div>
+      <dl>
+        <div class="p4-row"><dt>Formato</dt><dd>Catálogo dinâmico com preço embutido na peça (ex: R$ 57,58, R$ 14,50) e imagem estática de produto</dd></div>
+        <div class="p4-row"><dt>Copy</dt><dd>"Desconto agora e mais vantagens depois! Use o cupom NOSSAESSENCIA5 e garanta 5% OFF... a cada R$1 gasto, acumula pontos" — mecânica de cupom + fidelidade empilhados</dd></div>
+        <div class="p4-row"><dt>Oferta</dt><dd>Até 40% OFF em aromatizadores de casa, cupom fixo exposto na própria peça</dd></div>
+        <div class="p4-row"><dt>Extra</dt><dd>Um anúncio de "quiz" ("Qual essência combina com você hoje?") para segmentar por interesse antes de vender</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="callout finding">
+    <span class="label">Os dois usam estratégias opostas — nenhuma delas é a da Touch Of Synergy hoje</span>
+    WNF vende sensação, sem preço, sem pressa — compatível com a faixa premium da Touch Of Synergy. Via Aroma vende desconto e ticket baixo, sempre ligado, catálogo dinâmico — incompatível com o posicionamento de curadoria de óleos raros. A oportunidade real está no meio-termo que nenhuma delas ocupa: <b>anúncio de sensação e ritual (como a WNF), mas resolvendo de cara o que a seção 06 já provou que trava a venda</b> — frete e forma de pagamento, não escondidos até a etapa 4 do checkout.
+  </div>
+
+  <h3 style="margin-top:26px;">Sugestões de anúncio para testar</h3>
+  <div class="tactic-grid">
+    <div class="tactic-card">
+      <div class="thead"><h4>Autoridade — certificação que os dois concorrentes não têm</h4></div>
+      <div class="desc">"Óleo essencial com Certificado Biológico da União Europeia. Não é todo lugar que você encontra Palo Santo ou Sândalo da Índia com essa origem." CTA: Conhecer a curadoria. Nenhum dos dois concorrentes reivindica certificação europeia — é um espaço livre.</div>
+      <div class="meta"><span class="badge low">Esforço baixo</span><span class="badge high">Impacto alto</span><span class="badge evidence">Gap competitivo confirmado</span></div>
+    </div>
+    <div class="tactic-card" style="border-color:var(--red);">
+      <div class="thead"><h4>Objeção resolvida na primeira linha</h4></div>
+      <div class="desc">"Frete grátis para Curitiba e região, ou a partir de R$ [novo limiar]. Pix, cartão em até 6x e boleto — tudo isso você já vê no carrinho, sem surpresa." Ataca direto o choque de frete e a visibilidade de pagamento identificados nas seções 06 e 07 — só funciona depois que o limiar de frete for revisto.</div>
+      <div class="meta"><span class="badge low">Esforço baixo</span><span class="badge high">Impacto alto</span><span class="badge evidence">Restrição confirmada</span></div>
+    </div>
+    <div class="tactic-card">
+      <div class="thead"><h4>Retargeting de carrinho, tom WNF + Pix</h4></div>
+      <div class="desc">"Seu [produto] ainda está te esperando 🌿 Pague no Pix e ganhe desconto — finalize em menos de 1 minuto." Só para quem chegou ao carrinho/checkout sem comprar — mesmo público do item de retargeting já no arsenal tático (seção 08).</div>
+      <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge high">Impacto alto</span><span class="badge evidence">Reaproveita achado do Pix</span></div>
+    </div>
+    <div class="tactic-card">
+      <div class="thead"><h4>Educativo — a mesma tática da WNF, com o inventário raro da casa</h4></div>
+      <div class="desc">Carrossel "5 óleos que você não vai achar em qualquer lugar" apresentando Palo Santo, Kewra, Sândalo da Índia com uma linha de uso cada. Copia o formato de engajamento que funciona para a WNF, mas usa a curadoria como diferencial em vez de commodities (menta, lavanda) que todo mundo vende.</div>
+      <div class="meta"><span class="badge mid">Esforço médio</span><span class="badge mid">Impacto médio</span><span class="badge evidence">Padrão validado por concorrente</span></div>
+    </div>
+    <div class="tactic-card">
+      <div class="thead"><h4>Prova social com número — o que falta desde a seção 10</h4></div>
+      <div class="desc">"Nota 5 de 5 no Google, entrega cuidadosa, embalagem impecável — é o que os nossos clientes dizem." Usar prints reais de avaliação como criativo, não banner genérico. Testa o mesmo ativo (avaliações) que a seção 10 já apontou como ausente no site.</div>
+      <div class="meta"><span class="badge low">Esforço baixo</span><span class="badge mid">Impacto médio</span><span class="badge evidence">Depoimentos já existem</span></div>
+    </div>
+  </div>
+  <p style="font-size:.8rem;color:var(--ink-soft);">Nenhuma dessas peças substitui a correção do checkout (seção 06) — anúncio melhor traz gente melhor qualificada para o mesmo funil quebrado. O ganho maior ainda é corrigir a restrição antes de escalar mídia.</p>
+</section>
+
+<section id="anexos">
+  <div class="section-head"><span class="section-num">12</span><h2>Fontes e confiança da análise</h2></div>
+  <div class="fnotes">
+    <ol>
+      <li>Taxas de conversão por categoria e média geral do e-commerce brasileiro: dados consolidados Neotrust/Ebit Nielsen, compilados em <a href="https://www.prax.ai/blog/benchmark-taxa-de-conversao" target="_blank" rel="noopener">Prax Analytics, Relatório de Benchmark 2025</a> e <a href="https://babitonhela.com/blog/taxa-conversao-media-ecommerce-brasileiro-dados/" target="_blank" rel="noopener">Babi Tonhela, Taxa de Conversão Média no E-commerce Brasileiro</a>.</li>
+      <li>Sessão → Add to cart: sem fonte brasileira específica localizada nesta pesquisa — etapa reportada sem comparação, não com um número inventado.</li>
+      <li>Alcance estimado a partir da razão Alcance/Impressões observada no funil diário do próprio cliente (17/08–21/09/2026) aplicada ao Impressões oficial do painel — marcado como estimativa, não fato medido.</li>
+      <li>CTR médio de e-commerce (0,9%–2,0%): <a href="https://www.webfx.com/blog/social-media/meta-benchmarks/" target="_blank" rel="noopener">WordStream, via WebFX, Meta Marketing Benchmarks 2026</a>.</li>
+      <li>Taxa de abandono de carrinho no Brasil (65%–83,1%, logo completion de 17%–35%): <a href="https://ecombase.com.br/blog/por-que-8-em-cada-10-compradores-abandonam-o-carrinho-no-e-commerce-saiba-como-reduzir" target="_blank" rel="noopener">Ecombase, dados consolidados de mercado BR</a> e <a href="https://www.revistavarejobrasil.com.br/abandono-de-carrinho-taxa-chega-a-82-veja-as-principais-causas-e-como-evitar/" target="_blank" rel="noopener">Revista Varejo Brasil, citando Baymard Institute, 2025</a>.</li>
+      <li>Perfis de concorrentes (By Samia, Phytoterápica, WNF, Via Aroma): auditoria direta dos sites oficiais <a href="https://www.bysamia.com.br/" target="_blank" rel="noopener">bysamia.com.br</a>, <a href="https://loja.phytoterapica.com.br/" target="_blank" rel="noopener">loja.phytoterapica.com.br</a>, <a href="https://www.wnf.com.br/" target="_blank" rel="noopener">wnf.com.br</a> e <a href="https://www.viaaroma.com.br/" target="_blank" rel="noopener">viaaroma.com.br</a>, realizada em 23/09/2026. BioEssência (bioessencia.com.br) foi excluída da comparação: bloqueou o acesso automatizado (HTTP 403) e os dados públicos não eram suficientes.</li>
+      <li>Taxa de recuperação de carrinho por e-mail (abertura 45%, retorno de 21%): <a href="https://blog.opinionbox.com/abandono-de-carrinho/" target="_blank" rel="noopener">Opinion Box, pesquisa 2025</a>.</li>
+      <li>Taxa de recuperação de carrinho por régua de WhatsApp (18%–25%): <a href="https://zenvia.com/blog/carrinho-abandonado/" target="_blank" rel="noopener">Zenvia, dados de clientes 2025</a>.</li>
+      <li>Comparação de canal de recuperação de carrinho (WhatsApp 15%–35%, SMS 8%–15%, e-mail 5%–10%): <a href="https://www.dombei.com.br/aumentar-taxa-de-conversao-ecommerce-recuperacao-carrinho-whatsapp-kommo/" target="_blank" rel="noopener">Dombei, 2025</a>. Não há benchmark de fonte nomeada para recuperação manual (sem régua) — tratada como piso abaixo dos canais automatizados, por não ter cadência nem timing garantidos.</li>
+      <li>Core Web Vitals de campo (LCP, INP, CLS, FCP, TTFB, mobile e desktop): <a href="https://pagespeed.web.dev/analysis/https-touchofsynergy-com-br/bcscjqm6xv" target="_blank" rel="noopener">Google PageSpeed Insights</a>, dado de usuários reais (Chrome UX Report) de 25/08 a 21/09/2026, fornecido pelo cliente em 23/09/2026. Substitui a medição sintética própria da rodada anterior, que estava inflada pelas condições de rede do ambiente de análise.</li>
+      <li>Funil diário completo (01/06–23/09/2026): planilha Google Sheets do próprio cliente, recebida em 23/09/2026. Fonte mais granular e completa desta análise — confirmou que os fins de semana de agosto têm dado normal (o arquivo anterior estava truncado).</li>
+      <li>Investimento, cliques e impressões por canal (Meta Ads vs. Google Ads): puxado direto das contas de anúncio via <a href="https://windsor.ai" target="_blank" rel="noopener">Windsor.ai</a> em 23/09/2026, contas "Touch Of Synergy" (Meta) e "17 - Touch of Synergy" (Google Ads), 01/06–23/09/2026.</li>
+      <li>Anúncios de concorrentes: <a href="https://www.facebook.com/ads/library/" target="_blank" rel="noopener">Meta Ad Library</a>, Brasil, consultada em 23/09/2026 (WNF via busca por palavra-chave, Via Aroma via ID de página fornecido). By Samia, Phytoterápica e Touch Of Synergy não retornaram anúncios ativos ou históricos na busca.</li>
+    </ol>
+    <div class="confidence">
+      <span>Confiança geral da análise:</span>
+      <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div>
+      <span>Muito alta — funil diário completo desde junho, auditado e sem lacunas de fim de semana; investimento por canal puxado direto das contas de anúncio; benchmarks de CTR, abandono de carrinho e canais de recuperação têm fonte brasileira nomeada; concorrentes vêm de auditoria direta dos próprios sites (quatro dos cinco mapeados — BioEssência excluída por bloqueio de acesso). Resta em aberto apenas sessão/venda por canal, que exige cruzar UTM no GA4.</span>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>Touch Of Synergy — Diagnóstico ARGUS · V4 Company – Carvalho &amp; Co. · Setembro/2026</footer>
+
+</body>
+</html>
