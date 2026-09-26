@@ -229,6 +229,7 @@ td.num, th.num{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabul
 .p4-card .p4-head .tagline{font-size:.78rem; color:var(--ink-soft); margin-top:5px; line-height:1.4;}
 .p4-card dl{margin:0; padding:16px 20px;}
 .p4-row{display:grid; grid-template-columns:70px 1fr; gap:12px; padding-block:11px; border-top:1px solid var(--line-soft);}
+#personas .p4-row{grid-template-columns:96px 1fr;}
 .p4-row:first-child{border-top:none;}
 .p4-row dt{font-size:.7rem; text-transform:uppercase; letter-spacing:.05em; color:var(--accent); font-weight:600; padding-top:1px;}
 .p4-row dd{margin:0; font-size:.84rem; line-height:1.55;}
@@ -290,6 +291,7 @@ footer{padding-block:48px 64px; font-size:.8rem; color:var(--ink-soft); text-ali
       <a href="#cenarios">Cenários</a>
       <a href="#plano">Plano</a>
       <a href="#mercado">Concorrentes</a>
+      <a href="#personas">Personas</a>
       <a href="#anuncios">Anúncios</a>
       <a href="#anexos">Fontes</a>
     </nav>
@@ -779,8 +781,53 @@ Tudo que está funcionando fica no topo e no meio do funil — tráfego, criativ
   </div>
 </section>
 
+<section id="personas">
+  <div class="section-head"><span class="section-num">11</span><h2>Personas — quem compra (e quem deveria comprar mais)</h2></div>
+  <p class="lede">Sem pesquisa de cliente, CRM ou entrevista disponível para esta análise — as três personas abaixo vêm de fontes reais e verificáveis: conteúdo do próprio site (Sobre Nós, landing page B2B), depoimentos publicados, a estrutura de preço/catálogo e o comportamento de checkout já auditado nas seções 03–06. Cada card marca o que é fato citável e o que é inferência de perfil — trate a inferência como hipótese a validar, não como dado fechado.</p>
+
+  <div class="callout risk">
+    <span class="label">Achado que muda o quadro — existe uma segunda audiência, e o cliente já sabia disso</span>
+    O domínio <code>lp.touchofsynergy.com.br</code> é uma landing page B2B ativa, separada da loja: "Matéria-prima de excelência para aromaterapeutas exigentes", linguagem de "prescrição clínica", CNPJ e compra por atacado. Ou seja, a Touch Of Synergy já vende (ou tenta vender) para <b>profissionais de terapias holísticas</b>, não só consumidor final — e a própria planilha de forecasting do cliente registra "Estratégia com LP - massoterapeutas" como ação já testada em julho. Essa audiência profissional não tem representação nenhuma na loja auditada neste diagnóstico (touchofsynergy.com.br), que fala só com o consumidor final. Isso é achado, não suposição: as personas 1 e 2 abaixo compram na loja D2C; a persona 3 é quem deveria estar na LP B2B e às vezes cai na loja errada.
+  </div>
+
+  <div class="p4-grid">
+    <div class="p4-card">
+      <div class="p4-head"><div class="name">Marina — a iniciante do autocuidado</div><div class="tagline">Primeira compra, decidindo se confia na marca</div></div>
+      <dl>
+        <div class="p4-row"><dt>Perfil</dt><dd>28–40 anos, mulher, urbana, renda média — inferência a partir do ticket médio real (R$ 361) e da faixa de entrada dos óleos essenciais (R$ 68–279)</dd></div>
+        <div class="p4-row"><dt>Motivação</dt><dd>Autocuidado, ritual de descompressão, indicação de alguém ou conteúdo de bem-estar — categoria é "demanda de geração": ela ainda não sabia que precisava do produto (fato, seção 02)</dd></div>
+        <div class="p4-row"><dt>O que tranquiliza</dt><dd>Depoimentos reais do site citam "atendimento de excelência", entrega rápida e embalagem cuidadosa — sinais de confiança que pesam mais na primeira compra do que preço (fato, conteúdo do site)</dd></div>
+        <div class="p4-row"><dt>Onde ela trava</dt><dd>Choque de frete no carrinho (R$ 152 → R$ 176,90) e formas de pagamento só visíveis na etapa 4 do checkout — exatamente os achados da seção 05, e exatamente o tipo de fricção que faz uma primeira compra hesitante desistir</dd></div>
+      </dl>
+    </div>
+    <div class="p4-card">
+      <div class="p4-head"><div class="name">Beatriz — a ritualista engajada</div><div class="tagline">Já converteu à categoria, compra de novo e maior</div></div>
+      <dl>
+        <div class="p4-row"><dt>Perfil</dt><dd>30–50 anos, já usa óleos essenciais no dia a dia — inferência a partir da linha de blends/synergies (R$ 153–397) e de depoimentos que mencionam acompanhamento contínuo via WhatsApp e aviso de reposição de estoque</dd></div>
+        <div class="p4-row"><dt>Motivação</dt><dd>Variedade, pureza e curadoria — já compra por hábito, não por dúvida; busca óleos mais raros (Palo Santo, Sândalo da Índia) que diferenciam a Touch Of Synergy da concorrência de commodity</dd></div>
+        <div class="p4-row"><dt>O que tranquiliza</dt><dd>Certificação orgânica europeia, relação de confiança já construída com a marca (fato, seção 02 e depoimentos do site)</dd></div>
+        <div class="p4-row"><dt>Onde ela trava</dt><dd>Nenhum contador de avaliações por produto para decidir entre variações parecidas, e nenhum parcelamento visível para compras maiores — lacunas confirmadas contra concorrentes na seção 10</dd></div>
+      </dl>
+    </div>
+    <div class="p4-card" style="border-color:var(--accent); box-shadow:0 0 0 1px var(--accent);">
+      <div class="p4-head"><div class="name">Camila — a profissional comprando no lugar errado</div><div class="tagline">Terapeuta, esteticista ou aromaterapeuta que cai na loja B2C</div></div>
+      <dl>
+        <div class="p4-row"><dt>Perfil</dt><dd>Massoterapeuta, aromaterapeuta ou esteticista com prática própria — público que a LP B2B do próprio cliente já nomeia e que a planilha de forecasting já registrou como estratégia testada (fato, achado acima)</dd></div>
+        <div class="p4-row"><dt>Motivação</dt><dd>Insumo para uso profissional/clínico, não ritual pessoal — compra maior volume por pedido, decide por ficha técnica e quimiotipo, não por embalagem bonita</dd></div>
+        <div class="p4-row"><dt>Onde ela trava</dt><dd>A loja D2C (touchofsynergy.com.br) não fala a língua dela — sem informação de quimiotipagem, uso clínico ou opção de compra em maior quantidade — enquanto a LP B2B, que fala exatamente essa língua, provavelmente não aparece pra ela no funil pago auditado nas seções 03–04</dd></div>
+        <div class="p4-row"><dt>Por que importa</dt><dd>É o público de maior ticket potencial dos três, e hoje corre paralelo ao funil desta análise — nenhuma sessão, checkout ou venda da LP B2B está nos números auditados (seção 03), o que significa receita profissional que este diagnóstico não está vendo</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="callout finding">
+    <span class="label">O que isso muda no plano</span>
+    Para Marina e Beatriz — quem já está no funil auditado — as correções já priorizadas no plano de ação (seção 09) são exatamente o que falta: frete previsível, pagamento visível cedo, prova social por produto. Camila é uma decisão à parte: vale confirmar com o cliente se a LP B2B tem tráfego e funil próprios medidos, ou se está invisível como a planilha diária sugere — se estiver, há receita de maior ticket ficando na mesa sem custar um real a mais em mídia da loja D2C.
+  </div>
+</section>
+
 <section id="anuncios">
-  <div class="section-head"><span class="section-num">11</span><h2>Anúncios — o que os concorrentes veiculam e o que testar</h2></div>
+  <div class="section-head"><span class="section-num">12</span><h2>Anúncios — o que os concorrentes veiculam e o que testar</h2></div>
   <p class="lede">Biblioteca de Anúncios do Meta, Brasil, checada em 23/09/2026. Nem todo concorrente mapeado está lá: By Samia e Phytoterápica não têm nenhum anúncio ativo ou histórico encontrado — a maturidade de checkout delas não vem de mídia paga no Meta. A própria Touch Of Synergy também não aparece na busca por nome, apesar do investimento real confirmado via Windsor.ai — sinal de que a Página de anúncios pode estar registrada sob outro nome, vale confirmar internamente.</p>
 
   <div class="p4-grid">
@@ -841,7 +888,7 @@ Tudo que está funcionando fica no topo e no meio do funil — tráfego, criativ
 </section>
 
 <section id="anexos">
-  <div class="section-head"><span class="section-num">12</span><h2>Fontes e confiança da análise</h2></div>
+  <div class="section-head"><span class="section-num">13</span><h2>Fontes e confiança da análise</h2></div>
   <div class="fnotes">
     <ol>
       <li>Taxas de conversão por categoria e média geral do e-commerce brasileiro: dados consolidados Neotrust/Ebit Nielsen, compilados em <a href="https://www.prax.ai/blog/benchmark-taxa-de-conversao" target="_blank" rel="noopener">Prax Analytics, Relatório de Benchmark 2025</a> e <a href="https://babitonhela.com/blog/taxa-conversao-media-ecommerce-brasileiro-dados/" target="_blank" rel="noopener">Babi Tonhela, Taxa de Conversão Média no E-commerce Brasileiro</a>.</li>
@@ -858,11 +905,12 @@ Tudo que está funcionando fica no topo e no meio do funil — tráfego, criativ
       <li>Funil diário completo (01/06–23/09/2026): planilha Google Sheets do próprio cliente, recebida em 23/09/2026. Fonte mais granular e completa desta análise — confirmou que os fins de semana de agosto têm dado normal (o arquivo anterior estava truncado).</li>
       <li>Investimento, cliques e impressões por canal (Meta Ads vs. Google Ads): puxado direto das contas de anúncio via <a href="https://windsor.ai" target="_blank" rel="noopener">Windsor.ai</a> em 23/09/2026, contas "Touch Of Synergy" (Meta) e "17 - Touch of Synergy" (Google Ads), 01/06–23/09/2026.</li>
       <li>Anúncios de concorrentes: <a href="https://www.facebook.com/ads/library/" target="_blank" rel="noopener">Meta Ad Library</a>, Brasil, consultada em 23/09/2026 (WNF via busca por palavra-chave, Via Aroma via ID de página fornecido). By Samia, Phytoterápica e Touch Of Synergy não retornaram anúncios ativos ou históricos na busca.</li>
+      <li>Personas (seção 11): sem CRM, pesquisa ou entrevista de cliente disponível — construídas a partir de <a href="https://touchofsynergy.com.br/" target="_blank" rel="noopener">touchofsynergy.com.br</a> (home e depoimentos), <a href="https://touchofsynergy.com.br/about-us/" target="_blank" rel="noopener">página Sobre Nós</a> e da landing page B2B <a href="https://lp.touchofsynergy.com.br/" target="_blank" rel="noopener">lp.touchofsynergy.com.br</a>, consultadas em 25/09/2026, cruzadas com a estrutura de preço/catálogo e os achados de checkout já auditados nas seções 03–06. A nota "Estratégia com LP - massoterapeutas" vem da própria planilha de forecasting do cliente (coluna Julho, linha "Ação corretiva").</li>
     </ol>
     <div class="confidence">
       <span>Confiança geral da análise:</span>
       <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div>
-      <span>Muito alta — todos os números de setembro desta revisão foram recalculados célula a célula direto da planilha diária (01–23/09), não de leitura visual do print; funil completo desde junho, sem lacunas de fim de semana; investimento por canal puxado direto das contas de anúncio; benchmarks de CTR, abandono de carrinho e canais de recuperação têm fonte brasileira nomeada; concorrentes vêm de auditoria direta dos próprios sites (quatro dos cinco mapeados — BioEssência excluída por bloqueio de acesso). Resta em aberto apenas sessão/venda por canal, que exige cruzar UTM no GA4.</span>
+      <span>Muito alta nos números — todos os números de setembro desta revisão foram recalculados célula a célula direto da planilha diária (01–23/09), não de leitura visual do print; funil completo desde junho, sem lacunas de fim de semana; investimento por canal puxado direto das contas de anúncio; benchmarks de CTR, abandono de carrinho e canais de recuperação têm fonte brasileira nomeada; concorrentes vêm de auditoria direta dos próprios sites (quatro dos cinco mapeados — BioEssência excluída por bloqueio de acesso). Resta em aberto sessão/venda por canal, que exige cruzar UTM no GA4. Exceção clara: as personas (seção 11) são inferência qualificada a partir de conteúdo público do site e da estrutura de preço/catálogo — não substituem pesquisa, entrevista ou CRM real de cliente, e devem ser tratadas como hipótese a validar, não como fato fechado.</span>
     </div>
   </div>
 </section>
